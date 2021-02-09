@@ -5,10 +5,13 @@
     <title>Vue Boolflix</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <div id="app">
-      
+      <input type="text" placeholder="Scrivi qualcosa" v-model="searchBar">
+      <button @click="apiCall">Cerca film</button>
+      <div class="box-film"></div>
     </div>
     <script src="js/script.js" charset="utf-8"></script>
   </body>
