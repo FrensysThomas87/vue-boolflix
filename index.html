@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" placeholder="Scrivi qualcosa" v-model="searchBar">
+      <input type="text" placeholder="Scrivi qualcosa" v-model="searchBar" @keyup.enter="apiCall">
       <button @click="apiCall">Cerca film</button>
       <div class="box-film" v-for="film in filteredFilm">
         <h2>Titolo: {{film.title}}</h2>
