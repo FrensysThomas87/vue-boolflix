@@ -21,11 +21,8 @@
         <h3>Titolo originale: {{film.originalTitle}}</h3>
         <span>Lingua: {{film.originalLanguage}}</span><br>
         <span>Voto: {{film.vote}}</span>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
+        <i v-for="i in film.vote" class="fas fa-star"></i>
+        <i v-for="i in (5 - film.vote)" class="far fa-star"></i>
 
       </div>
     </div>

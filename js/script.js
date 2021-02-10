@@ -11,7 +11,14 @@ new Vue({
    //Array filtrato dal catalogo dei film che contiene solo quello che voglio visualizzare
    filteredFilm:[],
 
-   emptyArray:[],
+
+
+   lightStars:['far fa-star'],
+
+   fullStars: ['fas fa-star'],
+
+   stars:5,
+
  },
 
  methods:{
@@ -23,8 +30,9 @@ new Vue({
      .then(function(resp){
 
        self.films = resp.data.results;
-       
+
        self.searchFilter();
+       // self.printStars();
 
        self.searchBar = '';
        console.log(self.filteredFilm);
@@ -47,6 +55,17 @@ new Vue({
        );
      });
    },
+
+   // printStars:function(){
+   //   this.films.forEach((element) => {
+   //     if(element.vote_average > 0){
+   //       this.fullStars.length = element.vote_average;
+   //     }else{
+   //       this.emptyStars.length = element.vote_average;
+   //     }
+   //   });
+   //
+   // },
 
 
 
