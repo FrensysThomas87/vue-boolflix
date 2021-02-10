@@ -23,7 +23,7 @@
         <h3>Titolo originale: {{film.original_title}}</h3>
         <span>Lingua: {{film.original_language}}</span>
         <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
-        <span>Voto: {{film.vote_average}}</span>
+        <span>Voto: {{parseVote(film.vote_average)}}</span>
 
         <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
         <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i>
