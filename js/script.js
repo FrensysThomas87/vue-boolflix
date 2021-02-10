@@ -23,8 +23,9 @@ new Vue({
      .then(function(resp){
 
        self.films = resp.data.results;
-
+       self.transformVote();
        self.searchFilter();
+
        self.searchBar = '';
        console.log(self.filteredFilm);
 
@@ -47,11 +48,63 @@ new Vue({
      });
    },
 
-   // pageReset:function(){
-   //   return this.filteredFilm.filter((element)=>{
-   //     return this.filteredFilm === this.
-   //   })
-   // }
+   transformVote:function(){
+     this.films.forEach((element) => {
+
+       switch (element.vote_average) {
+        case 0:
+        element.vote_average = 0;
+        break;
+
+        case 1:
+        element.vote_average = 1;
+        break;
+
+        case 2:
+        element.vote_average = 2;
+        break;
+
+        case 3:
+        element.vote_average = 3;
+        break;
+
+        case 4:
+        element.vote_average = 4;
+        break;
+
+        case 5:
+        element.vote_average = 5;
+        break;
+
+        case 6:
+        element.vote_average = 5;
+        break;
+
+        case 7:
+        element.vote_average = 5;
+        break;
+
+        case 8:
+        element.vote_average = 5;
+        break;
+
+        case 9:
+        element.vote_average = 5;
+        break;
+
+        case 10:
+        element.vote_average = 5;
+        break;
+
+        default :
+        element.vote_average = 5;
+       }
+     });
+
+
+   }
+
+
  },
 });
 Vue.config.devtools = true;
