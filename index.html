@@ -18,13 +18,13 @@
           <div>
             <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
           </div>
-
         </header>
 
       <!--end barra di ricerca -->
 
       <!-- films -->
-        <div class="box-film" v-for="film in films">
+      <main class=" flex">
+        <div class="box-film " v-for="film in films">
           <h2>Titolo: {{film.title}}</h2>
           <h3>Titolo originale: {{film.original_title}}</h3>
           <span>Lingua: {{film.original_language}}</span>
@@ -48,6 +48,8 @@
           <img :src="posterSize + serie.poster_path" alt="">
         </div>
         <!-- serie tv -->
+      </main>
+
 
       </div>
       <script src="js/script.js" charset="utf-8"></script>

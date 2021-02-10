@@ -17,6 +17,12 @@
   float: right;
 }
 
+.clearfix{
+  clear: both;
+  content: '';
+  display: table;
+}
+
 header{
   height: 80px;
   background-color: #000;
@@ -44,11 +50,27 @@ header img{
   vertical-align: middle;
 }
 
+main{
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
 
 .box-film,
 .box-serie-tv{
   border:1px solid #000;
+  width: calc(100% / 5 - 10px);
+  height: 600px;
+  background-color: red;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-image: url();
 }
+
+/* .box-film:last-child,
+.box-serie-tv:last-child{
+  margin-right: 0;
+} */
 
 .fas.fa-star{
   color: orange;
