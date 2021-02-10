@@ -76,6 +76,7 @@ main{
   margin-right: 10px;
   margin-bottom: 10px;
   background-size: cover;
+
 }
 
 .box-film h2,
@@ -112,10 +113,17 @@ main{
   width: 15px;
 }
 
+.box-film:hover .info-container,
+.box-serie-tv:hover .info-container{
+  display: block;
+
+}
+
 .info-container{
   width: 100%;
   height: 100%;
   background-color: #000;
   color: #fff;
   padding: 40px 10px;
+  
 }
