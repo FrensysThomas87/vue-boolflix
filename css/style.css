@@ -64,7 +64,7 @@ main{
   background-color: red;
   margin-right: 10px;
   margin-bottom: 10px;
-  background-image: url();
+  background-size: cover;
 }
 
 /* .box-film:last-child,

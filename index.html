@@ -24,7 +24,8 @@
 
       <!-- films -->
       <main class=" flex">
-        <div class="box-film " v-for="film in films">
+        <div class="box-film " v-for="film in films"
+        :style="{backgroundImage: 'url(' + posterSize + film.poster_path + ')'}">
           <h2>Titolo: {{film.title}}</h2>
           <h3>Titolo originale: {{film.original_title}}</h3>
           <span>Lingua: {{film.original_language}}</span>
@@ -37,7 +38,8 @@
         <!-- end films -->
 
         <!-- serie tv -->
-        <div class="box-serie-tv" v-for="serie in tvShows">
+        <div class="box-serie-tv" v-for="serie in tvShows"
+        :style="{backgroundImage: 'url(' + posterSize + serie.poster_path + ')'}">
           <h2>Titolo: {{serie.name}}</h2>
           <h3>Titolo originale: {{serie.original_name}}</h3>
           <span>Lingua: {{serie.original_language}}</span>
