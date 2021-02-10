@@ -5,7 +5,9 @@
     <title>Vue Boolflix</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -16,13 +18,15 @@
         <button @click="apiCall">Cerca film</button>
       </div>
 
-      <div class="box-film" v-for="film in filteredFilm">
+      <div class="box-film" v-for="film in films">
         <h2>Titolo: {{film.title}}</h2>
-        <h3>Titolo originale: {{film.originalTitle}}</h3>
-        <span>Lingua: {{film.originalLanguage}}</span><br>
-        <span>Voto: {{film.vote}}</span>
-        <i v-for="i in film.vote" class="fas fa-star"></i>
-        <i v-for="i in (5 - film.vote)" class="far fa-star"></i>
+        <h3>Titolo originale: {{film.original_title}}</h3>
+        <span>Lingua: {{film.original_language}}</span>
+        <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
+        <span>Voto: {{film.vote_average}}</span>
+
+        <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
+        <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i>
 
       </div>
     </div>
