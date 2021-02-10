@@ -71,11 +71,12 @@ main{
 .box-serie-tv{
   border:1px solid #000;
   width: calc(100% / 5 - 10px);
-  height: 600px;
+  height: 700px;
   background-color: red;
   margin-right: 10px;
   margin-bottom: 10px;
-  background-size: cover;
+  background-size:cover;
+  background-position: center;
 
 }
 
@@ -125,5 +126,5 @@ main{
   background-color: #000;
   color: #fff;
   padding: 40px 10px;
-  
+
 }
