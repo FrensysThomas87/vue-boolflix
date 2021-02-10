@@ -26,6 +26,7 @@
       <main class=" flex">
         <div class="box-film " v-for="film in films"
         :style="{backgroundImage: 'url(' + posterSize + film.poster_path + ')'}">
+        <div class="information-container disp-none">
           <h2>Titolo: {{film.title}}</h2>
           <h3>Titolo originale: {{film.original_title}}</h3>
           <span>Lingua: {{film.original_language}}</span>
@@ -35,19 +36,24 @@
           <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
           <img :src="posterSize + film.poster_path" alt="">
         </div>
+
+        </div>
         <!-- end films -->
 
         <!-- serie tv -->
         <div class="box-serie-tv" v-for="serie in tvShows"
         :style="{backgroundImage: 'url(' + posterSize + serie.poster_path + ')'}">
-          <h2>Titolo: {{serie.name}}</h2>
-          <h3>Titolo originale: {{serie.original_name}}</h3>
-          <span>Lingua: {{serie.original_language}}</span>
-          <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
-          <span>Voto: {{parseVote(serie.vote_average)}}</span>
-          <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
-          <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
-          <img :src="posterSize + serie.poster_path" alt="">
+          <div class="information-container disp-none">
+            <h2>Titolo: {{serie.name}}</h2>
+            <h3>Titolo originale: {{serie.original_name}}</h3>
+            <span>Lingua: {{serie.original_language}}</span>
+            <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
+            <span>Voto: {{parseVote(serie.vote_average)}}</span>
+            <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
+            <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
+            <img :src="posterSize + serie.poster_path" alt="">
+          </div>
+
         </div>
         <!-- serie tv -->
       </main>
