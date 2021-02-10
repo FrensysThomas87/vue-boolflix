@@ -15,12 +15,13 @@
         <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
         <button @click="apiCall">Cerca film</button>
       </div>
-      
+
       <div class="box-film" v-for="film in filteredFilm">
         <h2>Titolo: {{film.title}}</h2>
         <h3>Titolo originale: {{film.originalTitle}}</h3>
         <span>Lingua: {{film.originalLanguage}}</span><br>
         <span>Voto: {{film.vote}}</span>
+        
       </div>
     </div>
     <script src="js/script.js" charset="utf-8"></script>
