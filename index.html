@@ -12,23 +12,36 @@
   </head>
   <body>
     <div id="app">
+      <!-- barra di ricerca -->
       <div class="search-container">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
         <button @click="apiCall">Cerca film</button>
       </div>
+      <!--end barra di ricerca -->
 
+      <!-- films -->
       <div class="box-film" v-for="film in films">
         <h2>Titolo: {{film.title}}</h2>
         <h3>Titolo originale: {{film.original_title}}</h3>
         <span>Lingua: {{film.original_language}}</span>
         <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
         <span>Voto: {{parseVote(film.vote_average)}}</span>
-
         <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
         <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i>
-
       </div>
+      <!-- end films -->
+
+      <div class="box-serie-tv" v-for="serie in tvShows">
+        <h2>Titolo: {{serie.name}}</h2>
+        <h3>Titolo originale: {{serie.original_name}}</h3>
+        <span>Lingua: {{serie.original_language}}</span>
+        <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
+        <span>Voto: {{parseVote(serie.vote_average)}}</span>
+        <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
+        <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
+      </div>
+
     </div>
     <script src="js/script.js" charset="utf-8"></script>
   </body>
