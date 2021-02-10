@@ -26,6 +26,7 @@
   color: orange;
 }
 
-.box-film img{
+.box-film img,
+.box-serie-tv img{
   width: 15px;
 }

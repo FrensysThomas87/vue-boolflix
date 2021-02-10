@@ -16,7 +16,7 @@
       <div class="search-container">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
-        <button @click="apiCall">Cerca film</button>
+        <button @click="apiCall">Cerca</button>
       </div>
       <!--end barra di ricerca -->
 
@@ -28,10 +28,12 @@
         <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
         <span>Voto: {{parseVote(film.vote_average)}}</span>
         <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
-        <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i>
+        <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
+        <img :src="posterSize + film.poster_path" alt="">
       </div>
       <!-- end films -->
 
+      <!-- serie tv -->
       <div class="box-serie-tv" v-for="serie in tvShows">
         <h2>Titolo: {{serie.name}}</h2>
         <h3>Titolo originale: {{serie.original_name}}</h3>
@@ -40,7 +42,9 @@
         <span>Voto: {{parseVote(serie.vote_average)}}</span>
         <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
         <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
+        <img :src="posterSize + serie.poster_path" alt="">
       </div>
+      <!-- serie tv -->
 
     </div>
     <script src="js/script.js" charset="utf-8"></script>

@@ -11,6 +11,8 @@ new Vue({
    // Array che contiene tutto il catalogo delle serie tv
    tvShows:[],
 
+   posterSize: 'http://image.tmdb.org/t/p/w500/',
+
 },
 
  methods:{
