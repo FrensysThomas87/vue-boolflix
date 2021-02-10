@@ -7,12 +7,14 @@ new Vue({
 
    // Array che contiene tutto il catalogo dei film
    films:[],
+
+   // Array che contiene tutto il catalogo delle serie tv
    tvShows:[],
 
 },
 
  methods:{
-   // Funzione che fa la chiamata api al click ed esegue la funzione searchFilter()
+   // Funzione che fa la chiamata api per i flim al click ed esegue la funzione che fa la chiamata api per le serie tv
    apiCall:function(){
      const self = this;
 
@@ -21,10 +23,12 @@ new Vue({
        self.films = resp.data.results;
        self.searchBar = '';
      });
-     
+
      self.serieTvApiCall();
    },
 
+
+   // Funzione che fa la chiamata api per le serie tv
    serieTvApiCall:function(){
      const self = this;
 
@@ -36,6 +40,7 @@ new Vue({
      })
    },
 
+   // Funzione che parsa il voto e lo divide per due
    parseVote:function(voto){
      return parseInt(voto / 2);
    },
