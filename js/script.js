@@ -13,6 +13,7 @@ new Vue({
 
    posterSize: 'http://image.tmdb.org/t/p/w500/',
 
+   logo: './img/frankflix.png'
 },
 
  methods:{

@@ -5,48 +5,51 @@
     <title>Vue Boolflix</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-    <div id="app">
+    <body>
+      <div id="app">
       <!-- barra di ricerca -->
-      <div class="search-container">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
-        <button @click="apiCall">Cerca</button>
-      </div>
+        <header class="flex">
+          <div>
+            <img :src="logo" alt="">
+          </div>
+          <div>
+            <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
+          </div>
+
+        </header>
+
       <!--end barra di ricerca -->
 
       <!-- films -->
-      <div class="box-film" v-for="film in films">
-        <h2>Titolo: {{film.title}}</h2>
-        <h3>Titolo originale: {{film.original_title}}</h3>
-        <span>Lingua: {{film.original_language}}</span>
-        <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
-        <span>Voto: {{parseVote(film.vote_average)}}</span>
-        <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
-        <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
-        <img :src="posterSize + film.poster_path" alt="">
-      </div>
-      <!-- end films -->
+        <div class="box-film" v-for="film in films">
+          <h2>Titolo: {{film.title}}</h2>
+          <h3>Titolo originale: {{film.original_title}}</h3>
+          <span>Lingua: {{film.original_language}}</span>
+          <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
+          <span>Voto: {{parseVote(film.vote_average)}}</span>
+          <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
+          <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
+          <img :src="posterSize + film.poster_path" alt="">
+        </div>
+        <!-- end films -->
 
-      <!-- serie tv -->
-      <div class="box-serie-tv" v-for="serie in tvShows">
-        <h2>Titolo: {{serie.name}}</h2>
-        <h3>Titolo originale: {{serie.original_name}}</h3>
-        <span>Lingua: {{serie.original_language}}</span>
-        <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
-        <span>Voto: {{parseVote(serie.vote_average)}}</span>
-        <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
-        <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
-        <img :src="posterSize + serie.poster_path" alt="">
-      </div>
-      <!-- serie tv -->
+        <!-- serie tv -->
+        <div class="box-serie-tv" v-for="serie in tvShows">
+          <h2>Titolo: {{serie.name}}</h2>
+          <h3>Titolo originale: {{serie.original_name}}</h3>
+          <span>Lingua: {{serie.original_language}}</span>
+          <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
+          <span>Voto: {{parseVote(serie.vote_average)}}</span>
+          <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
+          <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
+          <img :src="posterSize + serie.poster_path" alt="">
+        </div>
+        <!-- serie tv -->
 
-    </div>
-    <script src="js/script.js" charset="utf-8"></script>
-  </body>
-</html>
+      </div>
+      <script src="js/script.js" charset="utf-8"></script>
+    </body>
+  </html>
