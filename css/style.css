@@ -72,6 +72,7 @@ main{
   background-image: url('../img/netflix-logo.png');
   background-size: cover;
   background-position: center;
+  padding-top: 50px;
 
 }
 
@@ -96,7 +97,8 @@ main{
 .box-film h2,
 .box-film h3,
 .box-serie-tv h2,
-.box-serie-tv h3 {
+.box-serie-tv h3,
+ {
   margin-bottom: 10px;
 }
 

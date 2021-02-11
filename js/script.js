@@ -38,7 +38,7 @@ new Vue({
        params:{
          api_key:'427d996ca0a65b440bcbfd1d8ce45126',
          query: this.searchBar,
-         language: 'it-IT',
+         language: 'it-IT-en-EN',
        },
      })
      .then(function(resp){
@@ -57,7 +57,7 @@ new Vue({
        params:{
          api_key:'427d996ca0a65b440bcbfd1d8ce45126',
          query:this.searchBar,
-         language: 'it-IT',
+         language: 'it-IT-en-EN',
        },
 
      })
@@ -92,9 +92,7 @@ new Vue({
      return originalTitle !== title;
    },
 
-   hideOverview:function(overview){
-     return overview !== null;
-   },
+
 
  },
 });
