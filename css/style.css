@@ -133,7 +133,8 @@ main > h1{
 
 .box-film img,
 .box-serie-tv img{
-  width: 15px;
+  width: 25px;
+  vertical-align: middle;
 }
 
 .box-film:hover .info-container,
