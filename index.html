@@ -26,10 +26,11 @@
           <!-- films -->
           <main class=" flex">
             <!-- <h1 v-if="films.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
+            <h1 v-if="hideTypeVideo(films)">Films</h1>
             <div class="films-container flex">
-              <div class="box-film  " v-for="film in films"
 
-              :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
+              <div class="box-film  " v-for="film in films"
+                :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
                 {'backgroundImage': 'url(img/ciak.jpg)'}]">
                 <div class="info-container">
                   <h2><strong>Titolo:</strong> {{film.title}}</h2>
@@ -56,7 +57,9 @@
 
               <!-- serie tv -->
               <!-- <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
+              <h1 v-if="hideTypeVideo(tvShows)">Serie - TV</h1>
               <div class="serie-tv-container flex">
+
                 <div class="box-serie-tv" v-for="serie in tvShows"
 
                 :style="[serie.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + serie.poster_path + ')'}

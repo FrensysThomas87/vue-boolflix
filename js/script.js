@@ -92,6 +92,10 @@ new Vue({
      return originalTitle !== title;
    },
 
+   hideTypeVideo:function(type){
+     return type.length !== 0;
+   }
+
 
 
  },

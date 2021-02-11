@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+h1{
+  color:#fff;
+}
+
 #wrapper{
   height: 100vh;
 }
@@ -72,11 +76,20 @@ main{
   background-image: url('../img/netflix-logo.png');
   background-size: cover;
   background-position: center;
-  padding-top: 50px;
-
 }
 
+main > h1{
+  margin: auto;
+  font-size: 50px;
+}
 
+.films-container{
+  margin: 52px 0 100px;
+}
+
+.serie-tv-container{
+  margin-top: 40px;
+}
 
 
 .box-film,
@@ -112,10 +125,7 @@ main{
 
 
 
-/* .box-film:last-child,
-.box-serie-tv:last-child{
-  margin-right: 0;
-} */
+
 
 .fas.fa-star{
   color: orange;
