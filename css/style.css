@@ -76,10 +76,15 @@ main{
   background-color: #000;
 }
 
-main > h1{
+/* main > h1{
   margin: auto;
   font-size: 50px;
-  
+
+} */
+
+h1:first-of-type,
+h1:last-of-type{
+  font-size: 50px;
 }
 
 .films-container{

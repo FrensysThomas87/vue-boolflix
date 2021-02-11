@@ -94,10 +94,26 @@ new Vue({
 
    hideTypeVideo:function(type){
      return type.length !== 0;
-   }
+   },
 
 
 
  },
+
+ mounted(){
+   const self = this;
+
+   axios.get('https://api.themoviedb.org/3/search/movie',{
+     params:{
+       api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+       query: 'Kill Bill',
+       language: 'it-IT-en-EN',
+     },
+   })
+   .then(function(resp){
+     self.films = resp.data.results;
+
+   });
+ }
 });
 Vue.config.devtools = true;
