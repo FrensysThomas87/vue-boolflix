@@ -5,6 +5,9 @@
   box-sizing: border-box;
 }
 
+#wrapper{
+  height: 100vh;
+}
 
 
 .flex{
@@ -39,6 +42,7 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 25px;
+  width: 100%;
 }
 
 header img{
@@ -63,7 +67,8 @@ header img{
 main{
   padding: 10px;
   flex-wrap: wrap;
-
+  overflow-y: auto;
+  height: calc(100% - 80px);
 
 
 

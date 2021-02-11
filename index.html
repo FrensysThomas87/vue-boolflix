@@ -11,6 +11,7 @@
     <body>
       <div id="app">
       <!-- barra di ricerca -->
+      <div id="wrapper">
         <header class="flex">
           <div>
             <img :src="logo" alt="">
@@ -26,7 +27,7 @@
       <main class=" flex">
         <!-- <h1 v-if="films.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
         <div class="box-film  " v-for="film in films"
-        
+
         :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
           {'backgroundImage': 'url(img/ciak.jpg)'}]">
           <div class="info-container disp-none">
@@ -77,6 +78,8 @@
 
 
       </div>
+      </div>
+
       <script src="js/script.js" charset="utf-8"></script>
     </body>
   </html>
