@@ -59,6 +59,10 @@ new Vue({
      return parseInt(voto / 2);
    },
 
+   hideOriginalTitle:function(originalTitle, title ){
+     return originalTitle !== title;
+   }
+
  },
 });
 Vue.config.devtools = true;
