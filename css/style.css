@@ -53,7 +53,9 @@ header img{
   width: 200px;
 }
 
-
+main img{
+  width: 100%;
+}
 
  input{
   width: 200px;
@@ -73,7 +75,6 @@ main{
   flex-wrap: wrap;
   overflow-y: auto;
   height: calc(100% - 80px);
-  background-image: url('../img/netflix-logo.png');
   background-size: cover;
   background-position: center;
 }
