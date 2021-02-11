@@ -16,15 +16,19 @@ new Vue({
    logo: './img/frankflix.png',
 
    noResults: 'La ricerca non ha prodotto risultati',
+
+   credits:[],
 },
 
  methods:{
-   // Funzione che fa la chiamata api per i flim al click ed esegue la funzione che fa la chiamata api per le serie tv
+   // Funzione che fa la chiamata api per i film e le serie tv
    apiCall:function(){
      this.filmsApiCall();
      this.serieTvApiCall();
+     this.castApiCall();
    },
 
+   //Funzione che fa la chiamata per i films
    filmsApiCall:function(){
      const self = this;
 
@@ -56,7 +60,27 @@ new Vue({
      .then(function(resp){
        self.tvShows = resp.data.results;
        self.searchBar = '';
-       console.log(self.tvShows);
+
+     })
+   },
+
+   //Funzione che fa la chiamata per il cast
+   castApiCall:function(){
+     const self = this;
+
+     axios.get('https://api.themoviedb.org/3/movie',{
+       params:{
+         movieID: this.films.id,
+         credit: 'credits',
+         api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+
+       },
+
+     })
+     .then(function(resp){
+       self.credits = resp.data.cast;
+       self.searchBar = '';
+       console.log(self.credits);
      })
    },
 
