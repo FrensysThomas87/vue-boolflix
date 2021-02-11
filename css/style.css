@@ -62,7 +62,9 @@ header img{
 
 main{
   padding: 10px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  white-space: nowrap;
+  overflow-x: auto;
 
 }
 

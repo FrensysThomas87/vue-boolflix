@@ -13,7 +13,9 @@ new Vue({
 
    posterSize: 'http://image.tmdb.org/t/p/w342/',
 
-   logo: './img/frankflix.png'
+   logo: './img/frankflix.png',
+
+   noResults: 'La ricerca non ha prodotto risultati',
 },
 
  methods:{
@@ -34,6 +36,8 @@ new Vue({
 
      self.serieTvApiCall();
    },
+
+   
 
 
    // Funzione che fa la chiamata api per le serie tv
