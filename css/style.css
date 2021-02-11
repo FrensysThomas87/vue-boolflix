@@ -62,10 +62,10 @@ header img{
 
 main{
   padding: 10px;
-  /* flex-wrap: wrap; */
-  white-space: nowrap;
-  overflow-x: auto;
-  flex-direction: column;
+  flex-wrap: wrap;
+
+
+
 
 }
 
@@ -78,7 +78,7 @@ main{
 .box-film,
 .box-serie-tv{
   border:1px solid #000;
-  width: 400px;
+  width: calc(100% / 5 - 10px);
   height: 700px;
   margin-right: 10px;
   margin-bottom: 10px;
