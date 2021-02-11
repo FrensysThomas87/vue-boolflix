@@ -26,10 +26,12 @@
       <main class=" flex">
 
         <div class="box-film " v-for="film in films"
-        :style="{backgroundImage: 'url(' + posterSize + film.poster_path + ')'}">
+        :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}
+        :{'backgroundImage': 'url(img/ciak.jpg)'}]">
         <div class="info-container disp-none">
           <h2><strong>Titolo:</strong> {{film.title}}</h2>
-          <h3 v-if="hideOriginalTitle(film.original_title,film.title)"><strong>Titolo originale:</strong> {{film.original_title}}</h3>
+          <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
+            <strong>Titolo originale:</strong> {{film.original_title}}</h3>
           <!-- <span><strong>Lingua:</strong> {{film.original_language}}</span> -->
           <!-- <img :src="'img/' + film.original_language + '.svg'" alt="bandiera"> -->
           <span><strong>Voto:</strong></span>
@@ -44,7 +46,8 @@
 
         <!-- serie tv -->
         <div class="box-serie-tv" v-for="serie in tvShows"
-        :style="{backgroundImage: 'url(' + posterSize + serie.poster_path + ')'}">
+        :style="[serie.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + serie.poster_path + ')'}
+        :{'backgroundImage': 'url(img/serie-tv.jpg)'}]">
           <div class="info-container disp-none">
             <h2><strong>Titolo:</strong> {{serie.name}}</h2>
             <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )"><strong>Titolo originale:</strong> {{serie.original_name}}</h3>
@@ -55,6 +58,8 @@
             <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
             <p><strong>Overview:</strong>{{serie.overview}}</p>
             <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
+          </div>
+
           </div>
 
         </div>
@@ -68,3 +73,4 @@
   </html>
 
 <!-- {{parseVote(serie.vote_average)}} -->
+<!-- vi-if="film.poster_path !== null :style={backgroundImage: 'url(' + posterSize + film.poster_path  ')'}"> -->
