@@ -19,7 +19,7 @@ new Vue({
 
    credits:[],
 
-   
+
 },
 
  methods:{
@@ -90,7 +90,11 @@ new Vue({
 
    hideOriginalTitle:function(originalTitle, title ){
      return originalTitle !== title;
-   }
+   },
+
+   hideOverview:function(overview){
+     return overview !== null;
+   },
 
  },
 });

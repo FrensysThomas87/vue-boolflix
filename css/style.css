@@ -103,7 +103,7 @@ main{
 .box-film p,
 .box-serie-tv p{
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 100%;
 }
 
 .box-film p strong,
@@ -131,7 +131,8 @@ main{
 .box-serie-tv:hover .info-container{
   display: block;
   opacity: 0.9;
-  transition: all 0.5s;
+  transition: all .5s;
+
 }
 
 .info-container{

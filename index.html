@@ -40,7 +40,7 @@
                   <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
                   <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
 
-                  <p><strong>Overview:</strong>{{film.overview}}</p>
+                  <p><strong v-if="hideOverview(film.overview)">Overview:</strong>{{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
               </div>
