@@ -24,9 +24,9 @@
 
       <!-- films -->
       <main class=" flex">
-        <h1 v-if="films.length === 0">{{noResults}}</h1>
+        <h1 v-if="films.length === 0 && searchBar !== ''">{{noResults}}</h1>
         <div class="films-container">
-          <div class="box-film " v-for="film in films"
+          <div class="box-film float-l " v-for="film in films"
 
           :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
           {'backgroundImage': 'url(img/ciak.jpg)'}]">
@@ -50,24 +50,26 @@
 
 
         <!-- serie tv -->
-        <h1 v-if="tvShows.length === 0">{{noResults}}</h1>
-        
-        <div class="box-serie-tv" v-for="serie in tvShows"
-        :style="[serie.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + serie.poster_path + ')'}
-        :{'backgroundImage': 'url(img/serie-tv.jpg)'}]">
-          <div class="info-container disp-none">
-            <h2><strong>Titolo:</strong> {{serie.name}}</h2>
-            <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )"><strong>Titolo originale:</strong> {{serie.original_name}}</h3>
-            <!-- <span><strong>Lingua:</strong> {{serie.original_language}}</span> -->
-            <!-- <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera"> -->
-            <span><strong>Voto:</strong></span>
-            <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
-            <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
-            <p><strong>Overview:</strong>{{serie.overview}}</p>
-            <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
-          </div>
+        <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1>
+        <div class="serie-tv-container">
+          <div class="box-serie-tv float-l" v-for="serie in tvShows"
+          :style="[serie.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + serie.poster_path + ')'}
+          :{'backgroundImage': 'url(img/serie-tv.jpg)'}]">
+            <div class="info-container disp-none">
+              <h2><strong>Titolo:</strong> {{serie.name}}</h2>
+              <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )"><strong>Titolo originale:</strong> {{serie.original_name}}</h3>
+              <!-- <span><strong>Lingua:</strong> {{serie.original_language}}</span> -->
+              <!-- <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera"> -->
+              <span><strong>Voto:</strong></span>
+              <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
+              <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
+              <p><strong>Overview:</strong>{{serie.overview}}</p>
+              <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
+            </div>
 
           </div>
+        </div>
+
 
         </div>
         <!-- serie tv -->
