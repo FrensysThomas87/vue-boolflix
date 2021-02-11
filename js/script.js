@@ -18,6 +18,8 @@ new Vue({
    noResults: 'La ricerca non ha prodotto risultati',
 
    credits:[],
+
+   
 },
 
  methods:{

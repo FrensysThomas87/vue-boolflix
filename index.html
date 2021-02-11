@@ -11,74 +11,74 @@
     <body>
       <div id="app">
       <!-- barra di ricerca -->
-      <div id="wrapper">
-        <header class="flex">
-          <div>
-            <img :src="logo" alt="">
-          </div>
-          <div>
-            <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
-          </div>
-        </header>
+          <div id="wrapper">
+            <header class="flex">
+              <div>
+                <img :src="logo" alt="">
+              </div>
+              <div>
+                <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
+              </div>
+            </header>
 
-      <!--end barra di ricerca -->
+          <!--end barra di ricerca -->
 
-      <!-- films -->
-      <main class=" flex">
-        <!-- <h1 v-if="films.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
-        <div class="box-film  " v-for="film in films"
+          <!-- films -->
+          <main class=" flex">
+            <!-- <h1 v-if="films.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
+              <div class="box-film  " v-for="film in films"
 
-        :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
-          {'backgroundImage': 'url(img/ciak.jpg)'}]">
-          <div class="info-container disp-none">
-            <h2><strong>Titolo:</strong> {{film.title}}</h2>
-            <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
-            <strong>Titolo originale:</strong> {{film.original_title}}</h3>
-            <!-- <span><strong>Lingua:</strong> {{film.original_language}}</span> -->
-            <!-- <img :src="'img/' + film.original_language + '.svg'" alt="bandiera"> -->
-            <span><strong>Voto:</strong></span>
-            <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
-            <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
+              :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
+                {'backgroundImage': 'url(img/ciak.jpg)'}]">
+                <div class="info-container">
+                  <h2><strong>Titolo:</strong> {{film.title}}</h2>
+                  <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
+                  <strong>Titolo originale:</strong> {{film.original_title}}</h3>
+                  <!-- <span><strong>Lingua:</strong> {{film.original_language}}</span> -->
+                  <!-- <img :src="'img/' + film.original_language + '.svg'" alt="bandiera"> -->
+                  <span><strong>Voto:</strong></span>
+                  <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
+                  <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
 
-            <p><strong>Overview:</strong>{{film.overview}}</p>
-            <!-- <img :src="posterSize + film.poster_path" alt=""> -->
+                  <p><strong>Overview:</strong>{{film.overview}}</p>
+                  <!-- <img :src="posterSize + film.poster_path" alt=""> -->
+                </div>
+              </div>
+                <!-- end films -->
+
+
+
+              <!-- serie tv -->
+              <!-- <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
+
+                <div class="box-serie-tv" v-for="serie in tvShows"
+
+                :style="[serie.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + serie.poster_path + ')'}
+                :{'backgroundImage': 'url(img/serie-tv.jpg)'}]">
+                  <div class="info-container disp-none">
+                    <h2><strong>Titolo:</strong> {{serie.name}}</h2>
+                    <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )"><strong>Titolo originale:</strong> {{serie.original_name}}</h3>
+                    <!-- <span><strong>Lingua:</strong> {{serie.original_language}}</span> -->
+                    <!-- <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera"> -->
+                    <span><strong>Voto:</strong></span>
+                    <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
+                    <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br>
+
+                    <p><strong>Overview:</strong>{{serie.overview}}</p>
+                    <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
+                  </div>
+
+                </div>
+
+
+
+              </div>
+          <!-- serie tv -->
+            </main>
+
+
           </div>
         </div>
-          <!-- end films -->
-
-
-
-        <!-- serie tv -->
-        <!-- <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
-
-          <div class="box-serie-tv" v-for="serie in tvShows"
-
-          :style="[serie.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + serie.poster_path + ')'}
-          :{'backgroundImage': 'url(img/serie-tv.jpg)'}]">
-            <div class="info-container disp-none">
-              <h2><strong>Titolo:</strong> {{serie.name}}</h2>
-              <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )"><strong>Titolo originale:</strong> {{serie.original_name}}</h3>
-              <!-- <span><strong>Lingua:</strong> {{serie.original_language}}</span> -->
-              <!-- <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera"> -->
-              <span><strong>Voto:</strong></span>
-              <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
-              <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br>
-
-              <p><strong>Overview:</strong>{{serie.overview}}</p>
-              <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
-            </div>
-
-          </div>
-
-
-
-        </div>
-        <!-- serie tv -->
-      </main>
-
-
-      </div>
-      </div>
 
       <script src="js/script.js" charset="utf-8"></script>
     </body>
