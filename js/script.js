@@ -21,6 +21,11 @@ new Vue({
  methods:{
    // Funzione che fa la chiamata api per i flim al click ed esegue la funzione che fa la chiamata api per le serie tv
    apiCall:function(){
+     this.filmsApiCall();
+     this.serieTvApiCall();
+   },
+
+   filmsApiCall:function(){
      const self = this;
 
      axios.get('https://api.themoviedb.org/3/search/movie',{
@@ -33,11 +38,8 @@ new Vue({
        self.films = resp.data.results;
        self.searchBar = '';
      });
-
-     self.serieTvApiCall();
    },
 
-   
 
 
    // Funzione che fa la chiamata api per le serie tv
