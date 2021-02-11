@@ -26,6 +26,7 @@
       <main class=" flex">
         <!-- <h1 v-if="films.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
         <div class="box-film  " v-for="film in films"
+        
         :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
           {'backgroundImage': 'url(img/ciak.jpg)'}]">
           <div class="info-container disp-none">
@@ -37,6 +38,7 @@
             <span><strong>Voto:</strong></span>
             <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
             <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
+
             <p><strong>Overview:</strong>{{film.overview}}</p>
             <!-- <img :src="posterSize + film.poster_path" alt=""> -->
           </div>
@@ -49,6 +51,7 @@
         <!-- <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
 
           <div class="box-serie-tv" v-for="serie in tvShows"
+
           :style="[serie.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + serie.poster_path + ')'}
           :{'backgroundImage': 'url(img/serie-tv.jpg)'}]">
             <div class="info-container disp-none">
@@ -58,7 +61,8 @@
               <!-- <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera"> -->
               <span><strong>Voto:</strong></span>
               <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
-              <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i>
+              <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br>
+
               <p><strong>Overview:</strong>{{serie.overview}}</p>
               <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
             </div>

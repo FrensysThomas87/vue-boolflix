@@ -36,6 +36,7 @@ new Vue({
        params:{
          api_key:'427d996ca0a65b440bcbfd1d8ce45126',
          query: this.searchBar,
+         language: 'it-IT',
        },
      })
      .then(function(resp){
@@ -54,6 +55,7 @@ new Vue({
        params:{
          api_key:'427d996ca0a65b440bcbfd1d8ce45126',
          query:this.searchBar,
+         language: 'it-IT',
        },
 
      })
@@ -68,7 +70,7 @@ new Vue({
    castApiCall:function(){
      const self = this;
      this.films.forEach((element) => {
-       axios.get('https://api.themoviedb.org/3/movie/'+ element.id + '/credits?api_key=427d996ca0a65b440bcbfd1d8ce45126')
+       axios.get('https://api.themoviedb.org/3/movie/'+ element.id + '/credits?api_key=427d996ca0a65b440bcbfd1d8ce45126&language=en-US')
        .then(function(resp){
          self.credits = resp.data.cast;
          self.searchBar = '';
