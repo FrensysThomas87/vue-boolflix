@@ -76,16 +76,13 @@ main{
 
 }
 
-/* .films-container{
-  display: flex;
 
-} */
 
 
 .box-film,
 .box-serie-tv{
   border:1px solid #000;
-  width: calc(100% / 5 - 10px);
+  width: 400px;
   height: 700px;
   margin-right: 10px;
   margin-bottom: 10px;
