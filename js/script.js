@@ -67,21 +67,16 @@ new Vue({
    //Funzione che fa la chiamata per il cast
    castApiCall:function(){
      const self = this;
+     this.films.forEach((element) => {
+       axios.get('https://api.themoviedb.org/3/movie/'+ element.id + '/credits?api_key=427d996ca0a65b440bcbfd1d8ce45126')
+       .then(function(resp){
+         self.credits = resp.data.cast;
+         self.searchBar = '';
+         console.log(self.credits);
+       })
+     });
 
-     axios.get('https://api.themoviedb.org/3/movie',{
-       params:{
-         movieID: this.films.id,
-         credit: 'credits',
-         api_key:'427d996ca0a65b440bcbfd1d8ce45126',
 
-       },
-
-     })
-     .then(function(resp){
-       self.credits = resp.data.cast;
-       self.searchBar = '';
-       console.log(self.credits);
-     })
    },
 
    // Funzione che parsa il voto e lo divide per due
