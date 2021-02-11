@@ -24,12 +24,12 @@
           <!--end barra di ricerca -->
 
           <!-- films -->
-          <main class=" flex">
-            
+          <main>
+
             <h1 v-if="hideTypeVideo(films)">Films</h1>
             <div class="films-container flex">
 
-              <div class="box-film  " v-for="film in films"
+              <div class="box-film" v-for="film in films"
                 :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
                 {'backgroundImage': 'url(img/ciak.jpg)'}]">
                 <div class="info-container">

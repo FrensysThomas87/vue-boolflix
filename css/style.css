@@ -36,9 +36,7 @@ h1{
   display: none;
 }
 
-body{
-  background-color: #434343;
-}
+
 
 header{
   height: 80px;
@@ -53,9 +51,7 @@ header img{
   width: 200px;
 }
 
-main img{
-  width: 100%;
-}
+
 
  input{
   width: 200px;
@@ -77,19 +73,29 @@ main{
   height: calc(100% - 80px);
   background-size: cover;
   background-position: center;
+  background-color: #000;
 }
 
 main > h1{
   margin: auto;
   font-size: 50px;
+  
 }
 
 .films-container{
   margin: 52px 0 100px;
+  clear: both;
+
 }
 
 .serie-tv-container{
   margin-top: 40px;
+  clear: both;
+}
+
+.films-container,
+.serie-tv-container{
+  width: max-content;
 }
 
 
