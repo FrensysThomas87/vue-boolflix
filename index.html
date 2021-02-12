@@ -65,7 +65,7 @@
                 <div class="box-serie-tv" v-for="serie in tvShows"
 
                 :style="backgroundSerieTv(serie)">
-                  <div class="info-container disp-none" @mouseOver="castTvApiCall(serie.id)">
+                  <div class="info-container" @mouseOver="castTvApiCall(serie.id)">
                     <h2><strong>Titolo:</strong> {{serie.name}}</h2>
                     <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )">
                       <strong>Titolo originale:</strong> {{serie.original_name}}</h3>

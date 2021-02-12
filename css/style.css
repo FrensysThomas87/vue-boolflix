@@ -137,9 +137,6 @@ h1:last-of-type{
 }
 
 
-
-
-
 .fas.fa-star{
   color: gold;
 }
@@ -155,7 +152,6 @@ h1:last-of-type{
   display: block;
   opacity: 0.9;
   transition:.5s;
-
 }
 
 .info-container{
@@ -166,4 +162,5 @@ h1:last-of-type{
   padding: 40px 10px;
   opacity: 0;
   overflow-y: auto;
+
 }
