@@ -79,7 +79,10 @@ new Vue({
      const self = this;
        return axios.get('https://api.themoviedb.org/3/movie/'+ id + '/credits?api_key=427d996ca0a65b440bcbfd1d8ce45126&language=en-US')
        .then(function(resp){
-         self.credits = resp.data.cast;
+         for(var i = 0; i < 5; i++){
+           self.credits = resp.data.cast;
+         }
+
          //self.searchBar = '';
          console.log(self.credits);
        });
