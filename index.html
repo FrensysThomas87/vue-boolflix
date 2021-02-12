@@ -24,7 +24,7 @@
           <!--end barra di ricerca -->
 
           <!-- films -->
-          <main v-for="credit in credits">
+          <main>
 
             <h1 v-if="hideKindVideo(films)">Films</h1>
             <div class="films-container flex">
@@ -46,7 +46,7 @@
                   <span><strong>Voto:</strong></span>
                   <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
                   <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
-                  <span><strong>Cast:</strong>{{credit.name}}</span>
+                  <span v-for="credit in credits"><strong>Cast:</strong>{{credit.name}}</span>
                   <p><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
