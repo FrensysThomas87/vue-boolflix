@@ -77,14 +77,19 @@ new Vue({
    //Funzione che fa la chiamata per il cast
    castApiCall:function(id){
      const self = this;
-       return axios.get('https://api.themoviedb.org/3/movie/'+ id + '/credits?api_key=427d996ca0a65b440bcbfd1d8ce45126&language=en-US')
+       return axios.get('https://api.themoviedb.org/3/movie/'+ id + '/credits',{
+         params:{
+           api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+
+         },
+
+       })
        .then(function(resp){
+         self.credits = resp.data.cast;
 
-           self.credits = resp.data.cast;
 
 
-         //self.searchBar = '';
-         console.log(self.credits);
+
        });
 
 
