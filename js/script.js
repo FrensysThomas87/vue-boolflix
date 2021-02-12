@@ -27,7 +27,7 @@ new Vue({
    apiCall:function(){
      this.filmsApiCall();
      this.serieTvApiCall();
-     this.castApiCall();
+
    },
 
    //Funzione che fa la chiamata per i films
@@ -88,12 +88,14 @@ new Vue({
      return parseInt(voto / 2);
    },
 
+   //Funzione che nasconde il titolo originale se è uguale al titolo
    hideOriginalTitle:function(originalTitle, title ){
      return originalTitle !== title;
    },
 
-   hideTypeVideo:function(type){
-     return type.length !== 0;
+   //Funzione che nasconde la dicitura film e serie tv se l'array che li riguarda è a zero
+   hideKindVideo:function(kind){
+     return kind.length !== 0;
    },
 
 
@@ -112,7 +114,7 @@ new Vue({
    })
    .then(function(resp){
      self.films = resp.data.results;
-
+     self.castApiCall();
    });
  }
 });
