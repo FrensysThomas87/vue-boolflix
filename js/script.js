@@ -20,6 +20,8 @@ new Vue({
    credits:[],
 
 
+
+
 },
 
  methods:{
@@ -44,8 +46,10 @@ new Vue({
      })
      .then(function(resp){
        self.films = resp.data.results;
-       self.castApiCall();
+
        self.searchBar = '';
+
+       // console.log(self.films);
      });
    },
 
@@ -71,16 +75,14 @@ new Vue({
    },
 
    //Funzione che fa la chiamata per il cast
-   castApiCall:function(){
+   castApiCall:function(id){
      const self = this;
-     this.films.forEach((element) => {
-       axios.get('https://api.themoviedb.org/3/movie/'+ element.id + '/credits?api_key=427d996ca0a65b440bcbfd1d8ce45126&language=en-US')
+       return axios.get('https://api.themoviedb.org/3/movie/'+ id + '/credits?api_key=427d996ca0a65b440bcbfd1d8ce45126&language=en-US')
        .then(function(resp){
          self.credits = resp.data.cast;
-         self.searchBar = '';
+         //self.searchBar = '';
          console.log(self.credits);
-       })
-     });
+       });
 
 
    },
@@ -127,12 +129,8 @@ new Vue({
      return {
        backgroundImage: 'url(img/serie-tv.jpg)'
      }
-
    },
-
-
-
- },
+},
 
  mounted(){
    const self = this;

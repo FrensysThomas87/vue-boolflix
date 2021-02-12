@@ -31,7 +31,7 @@
               <div class="box-film" v-for="film in films"
 
                 :style="backgroundMovie(film)">
-                <div class="info-container">
+                <div class="info-container" @mouseOver="castApiCall(film.id)">
                   <h2><strong>Titolo:</strong> {{film.title}}</h2>
                   <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
                   <strong>Titolo originale:</strong> {{film.original_title}}</h3>
@@ -42,8 +42,9 @@
                   <br>
                   <span><strong>Voto:</strong></span>
                   <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
-                  <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
-                  <span><strong>Cast:</strong>{{credits.name}}</span>
+                  <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br><br>
+                  <span><strong>Cast:</strong></span>
+                  <span v-for="credit in film.credits">{{film.id}} -</span>
                   <p><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
