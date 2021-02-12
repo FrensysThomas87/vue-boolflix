@@ -85,7 +85,7 @@ new Vue({
          },
        })
        .then(function(resp){
-         self.credits = resp.data.cast
+         self.credits = resp.data.cast.slice(0,5);
        });
      },
 
