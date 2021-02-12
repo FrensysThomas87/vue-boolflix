@@ -100,6 +100,7 @@ new Vue({
      return kind.length !== 0;
    },
 
+   // Funzione che inserisce le copertine nei film e ne mette una di default se non trova niente
    backgroundMovie: function(film) {
 
      if(film.poster_path !== null) {
@@ -114,6 +115,7 @@ new Vue({
 
    },
 
+   // Funzione che inserisce le copertine nelle serie e ne mette una di default se non trova niente
    backgroundSerieTv: function(serie) {
 
      if(serie.poster_path !== null) {
