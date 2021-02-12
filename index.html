@@ -43,8 +43,9 @@
                   <span><strong>Voto:</strong></span>
                   <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
                   <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br><br>
-                  <span><strong>Cast:</strong></span>
+
                   <span v-for="credit in credits">{{credit.name}} -</span>
+                  <span><strong>Cast:</strong></span>
                   <p><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
@@ -74,7 +75,7 @@
                     <span><strong>Voto:</strong></span>
                     <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
                     <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br>
-                    <span><strong>Cast:</strong></span>
+                    <span><strong >Cast:</strong></span>
                     <span v-for="credit in credits">{{credit.name}} -</span>
                     <p><strong>Overview:</strong>{{serie.overview}}</p>
                     <!-- <img :src="posterSize + serie.poster_path" alt=""> -->

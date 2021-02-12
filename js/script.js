@@ -19,6 +19,7 @@ new Vue({
 
    credits:[],
 
+   creditsFiltered:[],
 
 
 
@@ -82,18 +83,11 @@ new Vue({
            api_key:'427d996ca0a65b440bcbfd1d8ce45126',
 
          },
-
        })
        .then(function(resp){
-         self.credits = resp.data.cast;
-
-
-
-
+         self.credits = resp.data.cast
        });
-
-
-   },
+     },
 
 
 
@@ -110,6 +104,10 @@ new Vue({
    //Funzione che nasconde la dicitura film e serie tv se l'array che li riguarda è a zero
    hideKindVideo:function(kind){
      return kind.length !== 0;
+   },
+
+   hideIfEqualZero:function(element){
+     return element.length === 0;
    },
 
    // Funzione che inserisce le copertine nei film e ne mette una di default se non trova niente
