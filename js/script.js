@@ -28,6 +28,7 @@ new Vue({
      this.filmsApiCall();
      this.serieTvApiCall();
 
+
    },
 
    //Funzione che fa la chiamata per i films
@@ -43,6 +44,7 @@ new Vue({
      })
      .then(function(resp){
        self.films = resp.data.results;
+       self.castApiCall();
        self.searchBar = '';
      });
    },
@@ -98,6 +100,34 @@ new Vue({
      return kind.length !== 0;
    },
 
+   backgroundMovie: function(film) {
+
+     if(film.poster_path !== null) {
+       return {
+          backgroundImage: 'url(' + this.posterSize + film.poster_path + ')'
+         }
+     }
+
+     return {
+       backgroundImage: 'url(img/ciak.jpg)'
+     }
+
+   },
+
+   backgroundSerieTv: function(serie) {
+
+     if(serie.poster_path !== null) {
+       return {
+          backgroundImage: 'url(' + this.posterSize + serie.poster_path + ')'
+         }
+     }
+
+     return {
+       backgroundImage: 'url(img/serie-tv.jpg)'
+     }
+
+   },
+
 
 
  },
@@ -114,7 +144,7 @@ new Vue({
    })
    .then(function(resp){
      self.films = resp.data.results;
-     self.castApiCall();
+
    });
  }
 });

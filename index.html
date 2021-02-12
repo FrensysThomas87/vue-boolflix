@@ -28,12 +28,9 @@
 
             <h1 v-if="hideKindVideo(films)">Films</h1>
             <div class="films-container flex">
-
               <div class="box-film" v-for="film in films"
 
-
-                :style="[film.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + film.poster_path + ')'}:
-                {'backgroundImage': 'url(img/ciak.jpg)'}]">
+                :style="backgroundMovie(film)">
                 <div class="info-container">
                   <h2><strong>Titolo:</strong> {{film.title}}</h2>
                   <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
@@ -46,7 +43,7 @@
                   <span><strong>Voto:</strong></span>
                   <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
                   <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br>
-                  <span v-for="credit in credits"><strong>Cast:</strong>{{credit.name}}</span>
+                  <span><strong>Cast:</strong>{{credits.name}}</span>
                   <p><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
@@ -64,8 +61,7 @@
 
                 <div class="box-serie-tv" v-for="serie in tvShows"
 
-                :style="[serie.poster_path !== null ? {'backgroundImage': 'url(' + posterSize + serie.poster_path + ')'}
-                :{'backgroundImage': 'url(img/serie-tv.jpg)'}]">
+                :style="backgroundSerieTv(serie)">
                   <div class="info-container disp-none">
                     <h2><strong>Titolo:</strong> {{serie.name}}</h2>
                     <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )"><strong>Titolo originale:</strong> {{serie.original_name}}</h3>

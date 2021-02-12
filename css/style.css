@@ -89,18 +89,19 @@ h1:last-of-type{
 
 .films-container{
   margin: 52px 0 100px;
-  clear: both;
+
 
 }
 
 .serie-tv-container{
   margin-top: 40px;
-  clear: both;
+
 }
 
 .films-container,
 .serie-tv-container{
   width: max-content;
+
 }
 
 
@@ -140,7 +141,7 @@ h1:last-of-type{
 
 
 .fas.fa-star{
-  color: orange;
+  color: gold;
 }
 
 .box-film img,
@@ -164,4 +165,5 @@ h1:last-of-type{
   color: #fff;
   padding: 40px 10px;
   opacity: 0;
+  overflow-y: auto;
 }
