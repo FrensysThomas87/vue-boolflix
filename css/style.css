@@ -120,7 +120,7 @@ h1:last-of-type{
 .box-film h2,
 .box-film h3,
 .box-serie-tv h2,
-.box-serie-tv h3,
+.box-serie-tv h3
  {
   margin-bottom: 10px;
 }
@@ -154,7 +154,7 @@ h1:last-of-type{
 .box-serie-tv:hover .info-container{
   display: block;
   opacity: 0.9;
-  transition: all .5s;
+  transition:.5s;
 
 }
 

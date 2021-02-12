@@ -19,7 +19,7 @@ new Vue({
 
    credits:[],
 
-   creditsFiltered:[],
+   generi:[],
 
 
 
@@ -76,7 +76,7 @@ new Vue({
    },
 
    //Funzione che fa la chiamata per il cast
-   castApiCall:function(id){
+   castMovieApiCall:function(id){
      const self = this;
        return axios.get('https://api.themoviedb.org/3/movie/'+ id + '/credits',{
          params:{
@@ -87,6 +87,35 @@ new Vue({
        .then(function(resp){
          self.credits = resp.data.cast.slice(0,5);
        });
+     },
+
+     castTvApiCall:function(id){
+       const self = this;
+         return axios.get('https://api.themoviedb.org/3/tv/'+ id + '/credits',{
+           params:{
+             api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+
+           },
+         })
+         .then(function(resp){
+           self.credits = resp.data.cast.slice(0,5);
+         });
+     },
+
+     // Funzione che richiama i generi dei films
+     genresApiCallMovie:function(){
+       const self = this;
+         return axios.get('https://api.themoviedb.org/3/genre/movie/list',{
+           params:{
+             api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+
+           },
+         })
+         .then(function(resp){
+           self.generi = resp.data.genres;
+
+           console.log(self.generi);
+         });
      },
 
 

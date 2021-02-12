@@ -31,7 +31,7 @@
               <div class="box-film" v-for="film in films"
 
                 :style="backgroundMovie(film)">
-                <div class="info-container" @mouseOver="castApiCall(film.id)">
+                <div class="info-container" @mouseOver="castMovieApiCall(film.id)">
                   <h2><strong>Titolo:</strong> {{film.title}}</h2>
                   <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
                   <strong>Titolo originale:</strong> {{film.original_title}}</h3>
@@ -44,8 +44,9 @@
                   <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
                   <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br><br>
                   <span><strong>Cast:</strong></span>
-                  <span v-for="credit in credits">{{credit.name}} -</span>
-
+                  <span v-for="credit in credits">{{credit.name}} -</span><br><br>
+                   <span><strong>Genders:</strong></span>
+                  <span v-for="gender in generi">{{gender.name}} - </span>
                   <p><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
@@ -64,9 +65,10 @@
                 <div class="box-serie-tv" v-for="serie in tvShows"
 
                 :style="backgroundSerieTv(serie)">
-                  <div class="info-container disp-none" @mouseOver="castApiCall(serie.id)">
+                  <div class="info-container disp-none" @mouseOver="castTvApiCall(serie.id)">
                     <h2><strong>Titolo:</strong> {{serie.name}}</h2>
-                    <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )"><strong>Titolo originale:</strong> {{serie.original_name}}</h3>
+                    <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )">
+                      <strong>Titolo originale:</strong> {{serie.original_name}}</h3>
                     <br>
                     <span><strong>Lingua:</strong> {{serie.original_language}}</span>
                     <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
@@ -74,7 +76,7 @@
                     <br>
                     <span><strong>Voto:</strong></span>
                     <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
-                    <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br>
+                    <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br><br>
                     <span><strong >Cast:</strong></span>
                     <span v-for="credit in credits">{{credit.name}} -</span>
                     <p><strong>Overview:</strong>{{serie.overview}}</p>
