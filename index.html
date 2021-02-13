@@ -31,7 +31,7 @@
               <div class="box-film" v-for="film in films"
 
                 :style="backgroundMovie(film)">
-                <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie(),genresApiCallTv()">
+                <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
                   <h2><strong>Titolo:</strong> {{film.title}}</h2>
                   <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
                   <strong>Titolo originale:</strong> {{film.original_title}}</h3>
@@ -65,7 +65,7 @@
                 <div class="box-serie-tv" v-for="serie in tvShows"
 
                 :style="backgroundSerieTv(serie)">
-                  <div class="info-container" @mouseOver="castTvApiCall(serie.id)">
+                  <div class="info-container" @mouseOver="castTvApiCall(serie.id),genresApiCallTv()">
                     <h2><strong>Titolo:</strong> {{serie.name}}</h2>
                     <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )">
                       <strong>Titolo originale:</strong> {{serie.original_name}}</h3>
