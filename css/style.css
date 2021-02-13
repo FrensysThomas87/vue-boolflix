@@ -68,12 +68,10 @@ header img{
 
 main{
   padding: 10px;
-  flex-wrap: wrap;
   overflow-y: auto;
   height: calc(100% - 80px);
-  background-size: cover;
-  background-position: center;
   background-color: #000;
+
 }
 
 /* main > h1{
@@ -89,8 +87,6 @@ h1:last-of-type{
 
 .films-container{
   margin: 52px 0 100px;
-
-
 }
 
 .serie-tv-container{
@@ -101,6 +97,7 @@ h1:last-of-type{
 .films-container,
 .serie-tv-container{
   width: max-content;
+  
 
 }
 
