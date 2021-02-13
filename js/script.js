@@ -102,7 +102,7 @@ new Vue({
          });
      },
 
-     // Funzione che richiama i generi dei films
+
      genresApiCallMovie:function(){
        const self = this;
          return axios.get('https://api.themoviedb.org/3/genre/movie/list',{
@@ -118,6 +118,7 @@ new Vue({
          });
      },
 
+     // Funzione che richiama i generi delle serie
      genresApiCallTv:function(){
        const self = this;
          return axios.get('https://api.themoviedb.org/3/genre/tv/list',{
@@ -133,6 +134,7 @@ new Vue({
          });
      },
 
+     //Funzione che assegna ad ogni serie/film i suoi generi
      giveGenres:function(movie, id){
        return movie.includes(id);
      },
