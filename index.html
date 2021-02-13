@@ -12,9 +12,15 @@
       <div id="app">
       <!-- barra di ricerca -->
           <div id="wrapper">
-            <header class="flex">
+            <header class="flex" @mouseOver="genresListGenerator()">
               <div>
                 <img :src="logo" alt="">
+              </div>
+              <div>
+                <select class="" name="" v-model="select">
+                  <option value="">---Tutti i generi---</option>
+                  <option v-for="element in genresList">{{element}}</option>
+                </select>
               </div>
               <div>
                 <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
@@ -29,6 +35,7 @@
             <h1 v-if="hideKindVideo(films)">Films</h1>
             <div class="films-container flex">
               <div class="box-film" v-for="film in films"
+
 
                 :style="backgroundMovie(film)">
                 <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
@@ -47,6 +54,7 @@
                   <span v-for="credit in credits">{{credit.name}}  </span><br><br>
                    <span><strong>Genre:</strong></span>
                   <span v-for="gender in generi" v-if="giveGenres(film.genre_ids, gender.id)">{{gender.name}}  </span>
+                  <p><stron>Release Date:</stron>{{film.release_date}}</p>
                   <p v-if="hideString(film.overview)"><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
@@ -83,6 +91,7 @@
                     <br>
                     <span><strong>Genre:</strong></span>
                     <span v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}}  </span>
+                    <p><stron>Release Date:</stron>{{serie.first_air_date}}</p>
                     <p v-if="hideString(serie.overview)"><strong>{{overview}}</strong>{{serie.overview}}</p>
                     <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
                   </div>

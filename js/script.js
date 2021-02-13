@@ -23,6 +23,10 @@ new Vue({
 
    overview: 'Overview:',
 
+   select:'',
+
+   genresList:[],
+
 
 },
 
@@ -90,6 +94,7 @@ new Vue({
        });
      },
 
+     //Richiama i generi delle serie tv
      castTvApiCall:function(id){
        const self = this;
          return axios.get('https://api.themoviedb.org/3/tv/'+ id + '/credits',{
@@ -103,7 +108,7 @@ new Vue({
          });
      },
 
-
+     //Richiama i generi dei film
      genresApiCallMovie:function(){
        const self = this;
          return axios.get('https://api.themoviedb.org/3/genre/movie/list',{
@@ -115,7 +120,7 @@ new Vue({
          .then(function(resp){
            self.generi = resp.data.genres;
 
-           console.log(self.generi);
+
          });
      },
 
@@ -131,7 +136,7 @@ new Vue({
          .then(function(resp){
            self.generi = resp.data.genres;
 
-           console.log(self.generi);
+
          });
      },
 
@@ -190,6 +195,23 @@ new Vue({
        backgroundImage: 'url(img/serie-tv.jpg)'
      }
    },
+
+   //Inserisce i generi in un array
+   genresListGenerator:function(){
+     this.generi.forEach((element) => {
+       if(!this.genresList.includes(element.name)){
+         this.genresList.push(element.name);
+         console.log(this.genresList);
+       }
+     });
+
+   },
+
+   filterByGenre:function(genere){
+     return genere.toLowerCase() === this.select.toLowerCase() || this.select === '';
+   }
+
+
 },
 
  mounted(){
@@ -204,6 +226,7 @@ new Vue({
    })
    .then(function(resp){
      self.films = resp.data.results;
+
 
    });
  }
