@@ -44,10 +44,10 @@
                   <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
                   <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br><br>
                   <span><strong>Cast:</strong></span>
-                  <span v-for="credit in credits">{{credit.name}} -</span><br><br>
-                   <span><strong>Genders:</strong></span>
-                  <span v-for="gender in generi" v-if="giveGenres(film.genre_ids, gender.id)">{{gender.name}} - </span>
-                  <p><strong>Overview:</strong> {{film.overview}}</p>
+                  <span v-for="credit in credits">{{credit.name}}  </span><br><br>
+                   <span><strong>Genre:</strong></span>
+                  <span v-for="gender in generi" v-if="giveGenres(film.genre_ids, gender.id)">{{gender.name}}  </span>
+                  <p v-if="hideString(film.overview)"><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
               </div>
@@ -78,12 +78,12 @@
                     <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
                     <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br><br>
                     <span><strong >Cast:</strong></span>
-                    <span v-for="credit in credits">{{credit.name}} -</span>
+                    <span v-for="credit in credits">{{credit.name}}  </span>
                     <br>
                     <br>
-                    <span><strong>Genders:</strong></span>
-                    <span v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}} - </span>
-                    <p><strong>Overview:</strong>{{serie.overview}}</p>
+                    <span><strong>Genre:</strong></span>
+                    <span v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}}  </span>
+                    <p v-if="hideString(serie.overview)"><strong>{{overview}}</strong>{{serie.overview}}</p>
                     <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
                   </div>
 

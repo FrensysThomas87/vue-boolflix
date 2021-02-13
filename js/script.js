@@ -21,6 +21,7 @@ new Vue({
 
    generi:[],
 
+   overview: 'Overview:',
 
 
 },
@@ -152,12 +153,13 @@ new Vue({
    },
 
    //Funzione che nasconde la dicitura film e serie tv se l'array che li riguarda è a zero
-   hideKindVideo:function(kind){
-     return kind.length !== 0;
+   hideKindVideo:function(array){
+     return array.length !== 0;
    },
 
-   hideIfEqualZero:function(element){
-     return element.length === 0;
+   //Funzione che mostra le stringhe solo se il loro contenuto non è vuoto
+   hideString:function(element){
+     return element !== '';
    },
 
    // Funzione che inserisce le copertine nei film e ne mette una di default se non trova niente
