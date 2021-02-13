@@ -118,6 +118,21 @@ new Vue({
          });
      },
 
+     genresApiCallTv:function(){
+       const self = this;
+         return axios.get('https://api.themoviedb.org/3/genre/tv/list',{
+           params:{
+             api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+
+           },
+         })
+         .then(function(resp){
+           self.generi = resp.data.genres;
+
+           console.log(self.generi);
+         });
+     },
+
      giveGenres:function(movie, id){
        return movie.includes(id);
      },
