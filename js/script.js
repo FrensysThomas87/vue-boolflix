@@ -118,6 +118,10 @@ new Vue({
          });
      },
 
+     giveGenres:function(movie, id){
+       return movie.includes(id);
+     },
+
 
 
    // Funzione che parsa il voto e lo divide per due

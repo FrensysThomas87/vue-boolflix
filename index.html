@@ -46,7 +46,7 @@
                   <span><strong>Cast:</strong></span>
                   <span v-for="credit in credits">{{credit.name}} -</span><br><br>
                    <span><strong>Genders:</strong></span>
-                  <span v-for="gender in generi" v-if="film.genre_ids.includes(gender.id)">{{gender.name}} - </span>
+                  <span v-for="gender in generi" v-if="giveGenres(film.genre_ids, gender.id)">{{gender.name}} - </span>
                   <p><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
