@@ -31,8 +31,8 @@
 
           <!-- films -->
           <main>
-            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)" ></div>
-            <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)"></div>
+            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)" v-if="posterFilmVisible === true" ></div>
+            <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)" v-if="posterSerieVisible === true"></div>
             <div class="big-poster-tv"></div>
             <!-- <img class="big-poster" :src="insertBigPoster(generalResult)" alt=""> -->
             <h1 v-if="hideKindVideo(films)">Films</h1>
@@ -42,7 +42,7 @@
             <div class="films-container ">
               <div class="box-film-container flex">
                 <div class="box-film" v-for="(film,index) in generalResult":style="backgroundMovie(film)"
-                @click="getIndexFilms(index)">
+                @click="showBigPosterFilm(index)">
                   <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
                     <h2><strong>Titolo:</strong> {{film.title}}</h2>
                     <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
@@ -82,7 +82,7 @@
               <div class="serie-tv-container">
                 <div class="box-serie-tv-container flex">
                   <div class="box-serie-tv" v-for="(serie,i) in generalResultTv":style="backgroundSerieTv(serie)"
-                  @click="getIndexTv(i)">
+                  @click="showBigPosterTv(i)">
 
                     <div class="info-container" @mouseOver="castTvApiCall(serie.id),genresApiCallTv()">
                       <h2><strong>Titolo:</strong> {{serie.name}}</h2>

@@ -57,6 +57,10 @@ new Vue({
 
    serieIndex:0,
 
+   posterSerieVisible: false,
+
+   posterFilmVisible: true,
+
 
 },
 
@@ -276,14 +280,18 @@ new Vue({
 
    },
 
-   getIndexFilms:function(index){
+   showBigPosterFilm:function(index){
      this.activeIndex = index;
+     this.posterFilmVisible = true;
+     this.posterSerieVisible = false;
      console.log(this.activeIndex);
    },
 
-   getIndexTv:function(index){
-     this.serieIndex = index;
-     
+   showBigPosterTv:function(i){
+     this.serieIndex= i;
+     this.posterFilmVisible = false;
+     this.posterSerieVisible = true;
+     console.log(this.activeIndex);
    },
 
 
