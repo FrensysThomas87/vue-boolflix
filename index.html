@@ -36,9 +36,13 @@
                 <h1>{{generalResult[activeIndex].title}}</h1>
                 <p>{{generalResult[activeIndex].overview}}</p>
               </div>
-
             </div>
-            <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)" v-if="posterSerieVisible === true"></div>
+            <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)" v-if="posterSerieVisible === true">
+              <div class="big-poster-info-container">
+                <h1>{{generalResultTv[serieIndex].name}}</h1>
+                <p>{{generalResultTv[serieIndex].overview}}</p>
+              </div>
+            </div>
 
             <!-- <img class="big-poster" :src="insertBigPoster(generalResult)" alt=""> -->
             <h1 v-if="hideKindVideo(films)">Films</h1>
