@@ -100,7 +100,8 @@ h1:last-of-type{
 
 }
 
-.box-film-container{
+.box-film-container,
+.box-serie-tv-container{
   width: max-content;
 }
 

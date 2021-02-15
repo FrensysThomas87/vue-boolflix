@@ -74,34 +74,36 @@
               <!-- <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
               <h1 v-if="hideKindVideo(tvShows)">Serie - TV</h1>
 
-              <div class="serie-tv-container flex">
+              <div class="serie-tv-container">
+                <div class="box-serie-tv-container flex">
+                  <div class="box-serie-tv" v-for="serie in tvShows":style="backgroundSerieTv(serie)" v-if="serie.length!==0">
 
-                <div class="box-serie-tv" v-for="serie in tvShows":style="backgroundSerieTv(serie)" v-if="serie.length!==0">
+                    <div class="info-container" @mouseOver="castTvApiCall(serie.id),genresApiCallTv()">
+                      <h2><strong>Titolo:</strong> {{serie.name}}</h2>
+                      <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )">
+                        <strong>Titolo originale:</strong> {{serie.original_name}}</h3>
+                      <br>
+                      <span><strong>Lingua:</strong> {{serie.original_language}}</span>
+                      <img  :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
+                      <br>
+                      <br>
+                      <span><strong>Voto:</strong></span>
+                      <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
+                      <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br><br>
+                      <span><strong >Cast:</strong></span>
+                      <span v-for="credit in credits">{{credit.name}}  </span>
+                      <br>
+                      <br>
+                      <span><strong>Genre:</strong></span>
+                      <span :key="gender" v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}}  </span>
+                      <p><stron>Release Date:</stron>{{serie.first_air_date}}</p>
+                      <p v-if="hideString(serie.overview)"><strong>{{overview}}</strong>{{serie.overview}}</p>
+                      <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
+                    </div>
 
-                  <div class="info-container" @mouseOver="castTvApiCall(serie.id),genresApiCallTv()">
-                    <h2><strong>Titolo:</strong> {{serie.name}}</h2>
-                    <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )">
-                      <strong>Titolo originale:</strong> {{serie.original_name}}</h3>
-                    <br>
-                    <span><strong>Lingua:</strong> {{serie.original_language}}</span>
-                    <img  :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
-                    <br>
-                    <br>
-                    <span><strong>Voto:</strong></span>
-                    <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
-                    <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br><br>
-                    <span><strong >Cast:</strong></span>
-                    <span v-for="credit in credits">{{credit.name}}  </span>
-                    <br>
-                    <br>
-                    <span><strong>Genre:</strong></span>
-                    <span :key="gender" v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}}  </span>
-                    <p><stron>Release Date:</stron>{{serie.first_air_date}}</p>
-                    <p v-if="hideString(serie.overview)"><strong>{{overview}}</strong>{{serie.overview}}</p>
-                    <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
                   </div>
-
                 </div>
+
 
               </div>
             </div>
