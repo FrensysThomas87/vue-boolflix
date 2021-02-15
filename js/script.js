@@ -196,8 +196,8 @@ new Vue({
    },
 
    //Funzione che nasconde la dicitura film e serie tv se l'array che li riguarda è a zero
-   hideKindVideo:function(array){
-     return array.length !== 0;
+   hideKindVideo:function(array, array2){
+     return array.length !== 0 && array2.length !== 0;
    },
 
    //Funzione che mostra le stringhe solo se il loro contenuto non è vuoto
@@ -259,16 +259,7 @@ new Vue({
 
 
 
-   //Inserisce i generi in un array
-   genresListGenerator:function(){
-     this.generi.forEach((element) => {
-       if(!this.genresList.includes(element.name)){
-         this.genresList.push(element.name);
-         console.log(this.genresList);
-       }
-     });
 
-   },
 
 
 
