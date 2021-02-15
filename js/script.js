@@ -286,6 +286,11 @@ new Vue({
      console.log(this.activeIndex);
    },
 
+   //Funzione che nasconde i big poster
+   hidePoster:function(visibility,film, serie,){
+     return visibility === true && film.length === 0 && serie.length === 0
+   },
+
 
 
 
