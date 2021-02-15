@@ -96,9 +96,12 @@ h1:last-of-type{
 
 .films-container,
 .serie-tv-container{
+  overflow-x: scroll;
+
+}
+
+.box-film-container{
   width: max-content;
-
-
 }
 
 
@@ -163,5 +166,10 @@ h1:last-of-type{
 }
 
 .no-results{
-  color: #fff;
+  color: red;
+  position: absolute;
+  font-size: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

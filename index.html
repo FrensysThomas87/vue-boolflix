@@ -33,30 +33,32 @@
           <main>
 
             <h1 v-if="hideKindVideo(films)">Films</h1>
-            <h1 v-if="films.length === 0 && tvShows.length === 0">La ricerca non ha prodotto risultati</h1>
-            <div class="films-container flex">
-              <div class="box-film" v-for="film in films":style="backgroundMovie(film)">
 
+            <h1 class="no-results" v-if="films.length === 0 && tvShows.length === 0">LA RICERCA NON HA PRODOTTO RISULTATI!!!</h1>
+            <div class="films-container ">
+              <div class="box-film-container flex">
+                <div class="box-film" v-for="film in films":style="backgroundMovie(film)">
+                  <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
+                    <h2><strong>Titolo:</strong> {{film.title}}</h2>
+                    <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
+                    <strong>Titolo originale:</strong> {{film.original_title}}</h3>
+                    <br>
+                    <span><strong>Lingua:</strong> {{film.original_language}}</span>
+                    <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
+                    <br>
+                    <br>
+                    <span><strong>Voto:</strong></span>
+                    <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
+                    <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br><br>
+                    <span><strong>Cast:</strong></span>
+                    <span v-for="credit in credits">{{credit.name}}  </span><br><br>
+                     <span><strong>Genre:</strong></span>
+                    <span v-for="gender in generi" v-if="giveGenres(film.genre_ids, gender.id)">{{gender.name}}  </span>
+                    <p><stron>Release Date:</stron>{{film.release_date}}</p>
+                    <p v-if="hideString(film.overview)"><strong>Overview:</strong> {{film.overview}}</p>
+                    <!-- <img :src="posterSize + film.poster_path" alt=""> -->
+                  </div>
 
-                <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
-                  <h2><strong>Titolo:</strong> {{film.title}}</h2>
-                  <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
-                  <strong>Titolo originale:</strong> {{film.original_title}}</h3>
-                  <br>
-                  <span><strong>Lingua:</strong> {{film.original_language}}</span>
-                  <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
-                  <br>
-                  <br>
-                  <span><strong>Voto:</strong></span>
-                  <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
-                  <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br><br>
-                  <span><strong>Cast:</strong></span>
-                  <span v-for="credit in credits">{{credit.name}}  </span><br><br>
-                   <span><strong>Genre:</strong></span>
-                  <span v-for="gender in generi" v-if="giveGenres(film.genre_ids, gender.id)">{{gender.name}}  </span>
-                  <p><stron>Release Date:</stron>{{film.release_date}}</p>
-                  <p v-if="hideString(film.overview)"><strong>Overview:</strong> {{film.overview}}</p>
-                  <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
 
               </div>
