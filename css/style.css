@@ -72,21 +72,15 @@ main{
   height: calc(100% - 80px);
   background-color: #000;
 
-
 }
 
-.big-poster{
-  width: 80%;
+.big-poster-film{
+  width: 100vw;
   height: 80vh;
-  background-color: red;
-  margin: 0 auto;
-  margin-bottom: 30px;
   background-size: 100% 100%;
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  /* background-position: center; */ */
+  margin-bottom: 50px;
 }
+
 
 h1:first-of-type,
 h1:last-of-type{
@@ -104,14 +98,13 @@ h1:last-of-type{
 
 .films-container,
 .serie-tv-container{
-  overflow-x: auto;
+  overflow-x: scroll;
 
 }
 
 .box-film-container,
 .box-serie-tv-container{
   width: max-content;
-  cursor: pointer;
 }
 
 

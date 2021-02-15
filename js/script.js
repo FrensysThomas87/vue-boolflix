@@ -55,7 +55,7 @@ new Vue({
 
    activeIndex:0,
 
-   serieIndex:false,
+   serieIndex:0,
 
 
 },
@@ -249,9 +249,18 @@ new Vue({
      }
    },
 
-   insertBigPoster:function(film,serie){
+   // Funzione che restiuisce l'immagine grande di copertina dei films
+   insertBigPosterFilm:function(film){
      return{
-       backgroundImage: 'url(' + this.posterSizeBig + film[this.activeIndex].poster_path +  ')'
+       backgroundImage: 'url(' + this.posterSizeBig + film[this.activeIndex].poster_path +   ')'
+     }
+
+   },
+
+   // Funzione che restituisce l'immagine grande di copertina delle serie
+   insertBigPosterSerie:function(tv){
+     return{
+        backgroundImage: 'url(' + this.posterSizeBig + tv[this.serieIndex].poster_path +   ')'
      }
 
    },
@@ -267,10 +276,19 @@ new Vue({
 
    },
 
-   getIndex:function(index){
+   getIndexFilms:function(index){
      this.activeIndex = index;
-     console.log(index);
-   }
+     console.log(this.activeIndex);
+   },
+
+   getIndexTv:function(index){
+     this.serieIndex = index;
+     
+   },
+
+
+
+
 
    // selectByGenre:function(array){
    //   return array.toLowerCase()===this.select || this.select === '';
@@ -290,11 +308,6 @@ new Vue({
    })
    .then(function(resp){
      self.trendingFilms = resp.data.results;
-
-
-
-
-
      self.generalResult = [...self.generalResult,...self.trendingFilms];
 
 
