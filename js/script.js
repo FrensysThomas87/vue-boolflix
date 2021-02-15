@@ -256,18 +256,27 @@ new Vue({
    // Funzione che restiuisce l'immagine grande di copertina dei films
    insertBigPosterFilm:function(film){
      return{
-       backgroundImage: 'url(' + this.posterSizeBig + film[this.activeIndex].poster_path +   ')'
+       backgroundImage: 'url(' + this.posterSizeBig + film[this.activeIndex].backdrop_path +   ')'
      }
 
    },
+
+   //Funzione che restiuisce l'immagine grande di copertina dei films
+   // insertBigPosterFilm:function(film){
+   //   return this.posterSizeBig + film[this.activeIndex].poste_path;
+   //
+   //
+   // },
 
    // Funzione che restituisce l'immagine grande di copertina delle serie
    insertBigPosterSerie:function(tv){
      return{
-        backgroundImage: 'url(' + this.posterSizeBig + tv[this.serieIndex].poster_path +   ')'
+        backgroundImage: 'url(' + this.posterSizeBig + tv[this.serieIndex].backdrop_path +   ')'
      }
 
    },
+
+
 
    //Inserisce i generi in un array
    genresListGenerator:function(){
@@ -280,6 +289,7 @@ new Vue({
 
    },
 
+   // Funzione che mostra i big poster dei films
    showBigPosterFilm:function(index){
      this.activeIndex = index;
      this.posterFilmVisible = true;
@@ -287,6 +297,7 @@ new Vue({
      console.log(this.activeIndex);
    },
 
+   // Funzione che mostra i big poster deLLE serie
    showBigPosterTv:function(i){
      this.serieIndex= i;
      this.posterFilmVisible = false;
