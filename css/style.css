@@ -72,13 +72,21 @@ main{
   height: calc(100% - 80px);
   background-color: #000;
 
+
 }
 
-/* main > h1{
-  margin: auto;
-  font-size: 50px;
-
-} */
+.big-poster{
+  width: 80%;
+  height: 80vh;
+  background-color: red;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background-size: 100% 100%;
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-position: center; */ */
+}
 
 h1:first-of-type,
 h1:last-of-type{
@@ -96,13 +104,14 @@ h1:last-of-type{
 
 .films-container,
 .serie-tv-container{
-  overflow-x: scroll;
+  overflow-x: auto;
 
 }
 
 .box-film-container,
 .box-serie-tv-container{
   width: max-content;
+  cursor: pointer;
 }
 
 

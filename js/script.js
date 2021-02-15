@@ -13,28 +13,49 @@ new Vue({
 
    posterSize: 'http://image.tmdb.org/t/p/w342/',
 
+   posterSizeBig: 'http://image.tmdb.org/t/p/w780/',
+
    logo: './img/frankflix.png',
 
    noResults: 'La ricerca non ha prodotto risultati',
 
+   // Oggetto che contiene gli attori
    credits:[],
 
+   //Oggetto che contiene i generi
    generi:[],
 
    overview: 'Overview:',
 
    select:'',
 
+   //Lista dei generi che riempie la select
    genresList:[],
 
+   //Array che contiene i trending films
    trendingFilms:[],
 
+
    generalResults:[],
+
+   //Array che contiene i trending tv shows
+   trendingTv:[],
+
+
 
    visible: true,
 
    apiKey:'427d996ca0a65b440bcbfd1d8ce45126',
 
+   //Array che contiene l'insieme dei trending films e dei films
+   generalResult:[],
+
+   //Array che contiene l'insieme dei trending tvShows e dei tvShows
+   generalResultTv:[],
+
+   activeIndex:0,
+
+   serieIndex:false,
 
 
 },
@@ -42,13 +63,13 @@ new Vue({
  methods:{
    // Funzione che fa la chiamata api per i film e le serie tv
    apiCall:function(){
-     this.generalResults = [];
+
+     this.generalResult = [];
+     this.generalResultTv = [];
      this.filmsApiCall();
      this.serieTvApiCall();
 
-
-
-   },
+},
 
    //Funzione che fa la chiamata per i films
    filmsApiCall:function(){
@@ -63,7 +84,16 @@ new Vue({
      })
      .then(function(resp){
        self.films = resp.data.results;
-       self.generalResults = [...self.generalResults, ...self.films];
+       self.generalResult = [...self.generalResult,...self.films];
+
+
+
+       self.generalResult = [...self.generalResult,...self.films];
+
+
+
+
+
        self.searchBar = '';
 
        // console.log(self.films);
@@ -86,7 +116,18 @@ new Vue({
      })
      .then(function(resp){
        self.tvShows = resp.data.results;
+
        self.generalResults = [...self.generalResults, ...self.tvShows];
+
+
+
+
+       self.generalResultTv = [...self.generalResultTv,...self.tvShows];
+
+
+
+
+
        self.searchBar = '';
 
      })
@@ -208,6 +249,13 @@ new Vue({
      }
    },
 
+   insertBigPoster:function(film,serie){
+     return{
+       backgroundImage: 'url(' + this.posterSizeBig + film[this.activeIndex].poster_path +  ')'
+     }
+
+   },
+
    //Inserisce i generi in un array
    genresListGenerator:function(){
      this.generi.forEach((element) => {
@@ -219,6 +267,11 @@ new Vue({
 
    },
 
+   getIndex:function(index){
+     this.activeIndex = index;
+     console.log(index);
+   }
+
    // selectByGenre:function(array){
    //   return array.toLowerCase()===this.select || this.select === '';
    // }
@@ -228,16 +281,37 @@ new Vue({
  mounted(){
    const self = this;
 
-   axios.get('https://api.themoviedb.org/3/trending/all/week',{
+   axios.get('https://api.themoviedb.org/3/trending/movie/week',{
      params:{
        api_key:this.apiKey,
-       query: 'Kill Bill',
+
        language: 'it-IT-en-EN',
      },
    })
    .then(function(resp){
      self.trendingFilms = resp.data.results;
-     self.generalResults = [...self.generalResults, ...self.trendingFilms];
+
+
+
+
+
+     self.generalResult = [...self.generalResult,...self.trendingFilms];
+
+
+
+   });
+
+   axios.get('https://api.themoviedb.org/3/trending/tv/week',{
+     params:{
+       api_key:this.apiKey,
+
+       language: 'it-IT-en-EN',
+     },
+   })
+   .then(function(resp){
+     self.trendingTv = resp.data.results;
+     self.generalResultTv = [...self.generalResultTv,...self.trendingTv];
+
 
 
    });
