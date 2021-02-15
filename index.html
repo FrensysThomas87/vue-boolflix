@@ -31,15 +31,17 @@
 
           <!-- films -->
           <main>
-            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"v-if="posterFilmVisible === true">
+            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"
+            v-if="posterFilmVisible === true && films.length === 0 && tvShows.length === 0 ">
               <div class="big-poster-info-container">
-                <h1>{{generalResult[activeIndex].title}}</h1>
+                <h1>{{generalResult[activeIndex].title.toUpperCase()}}</h1>
                 <p>{{generalResult[activeIndex].overview}}</p>
               </div>
             </div>
-            <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)" v-if="posterSerieVisible === true">
+            <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)"
+            v-if="posterSerieVisible === true && films.length === 0 && tvShows.length === 0">
               <div class="big-poster-info-container">
-                <h1>{{generalResultTv[serieIndex].name}}</h1>
+                <h1>{{generalResultTv[serieIndex].name.toUpperCase()}}</h1>
                 <p>{{generalResultTv[serieIndex].overview}}</p>
               </div>
             </div>
