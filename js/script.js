@@ -29,6 +29,8 @@ new Vue({
 
    trendingFilms:[],
 
+   generalResults:[],
+
    visible: true,
 
    apiKey:'427d996ca0a65b440bcbfd1d8ce45126',
@@ -40,6 +42,7 @@ new Vue({
  methods:{
    // Funzione che fa la chiamata api per i film e le serie tv
    apiCall:function(){
+     this.generalResults = [];
      this.filmsApiCall();
      this.serieTvApiCall();
 
@@ -60,7 +63,7 @@ new Vue({
      })
      .then(function(resp){
        self.films = resp.data.results;
-
+       self.generalResults = [...self.generalResults, ...self.films];
        self.searchBar = '';
 
        // console.log(self.films);
@@ -83,6 +86,7 @@ new Vue({
      })
      .then(function(resp){
        self.tvShows = resp.data.results;
+       self.generalResults = [...self.generalResults, ...self.tvShows];
        self.searchBar = '';
 
      })
@@ -232,8 +236,8 @@ new Vue({
      },
    })
    .then(function(resp){
-     self.films = resp.data.results;
-
+     self.trendingFilms = resp.data.results;
+     self.generalResults = [...self.generalResults, ...self.trendingFilms];
 
 
    });

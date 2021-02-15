@@ -37,7 +37,7 @@
             <h1 class="no-results" v-if="films.length === 0 && tvShows.length === 0">LA RICERCA NON HA PRODOTTO RISULTATI!!!</h1>
             <div class="films-container ">
               <div class="box-film-container flex">
-                <div class="box-film" v-for="film in films":style="backgroundMovie(film)">
+                <div class="box-film" v-for="film in generalResults":style="backgroundMovie(film)">
                   <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
                     <h2><strong>Titolo:</strong> {{film.title}}</h2>
                     <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
