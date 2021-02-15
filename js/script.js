@@ -270,6 +270,8 @@ new Vue({
 
    },
 
+
+
    // Funzione che mostra i big poster dei films
    showBigPosterFilm:function(index){
      this.activeIndex = index;

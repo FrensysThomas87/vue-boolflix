@@ -12,14 +12,14 @@
       <div id="app">
       <!-- barra di ricerca -->
           <div id="wrapper">
-            <header class="flex" @mouseOver="genresListGenerator()">
+            <header class="flex" @mouseOver="genresListGenerator(),genresApiCallMovie()">
               <div>
                 <img :src="logo" alt="">
               </div>
               <div>
                 <select class="" name="" v-model="select">
                   <option value="">---Tutti i generi---</option>
-                  <option v-for="element in genresList">{{element}}</option>
+                  <option v-for="element in genresList" value="element">{{element}}</option>
                 </select>
               </div>
               <div>
