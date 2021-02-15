@@ -97,7 +97,7 @@ h1:last-of-type{
 .films-container,
 .serie-tv-container{
   width: max-content;
-  
+
 
 }
 
@@ -160,4 +160,8 @@ h1:last-of-type{
   opacity: 0;
   overflow-y: auto;
 
+}
+
+.no-results{
+  color: #fff;
 }

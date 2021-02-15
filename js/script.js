@@ -27,6 +27,13 @@ new Vue({
 
    genresList:[],
 
+   trendingFilms:[],
+
+   visible: true,
+
+   apiKey:'427d996ca0a65b440bcbfd1d8ce45126',
+
+
 
 },
 
@@ -37,6 +44,7 @@ new Vue({
      this.serieTvApiCall();
 
 
+
    },
 
    //Funzione che fa la chiamata per i films
@@ -45,7 +53,7 @@ new Vue({
 
      axios.get('https://api.themoviedb.org/3/search/movie',{
        params:{
-         api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+         api_key:this.apiKey,
          query: this.searchBar,
          language: 'it-IT-en-EN',
        },
@@ -67,7 +75,7 @@ new Vue({
 
      axios.get('https://api.themoviedb.org/3/search/tv',{
        params:{
-         api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+         api_key:this.apiKey,
          query:this.searchBar,
          language: 'it-IT-en-EN',
        },
@@ -85,7 +93,7 @@ new Vue({
      const self = this;
        return axios.get('https://api.themoviedb.org/3/movie/'+ id + '/credits',{
          params:{
-           api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+           api_key:this.apiKey,
 
          },
        })
@@ -99,7 +107,7 @@ new Vue({
        const self = this;
          return axios.get('https://api.themoviedb.org/3/tv/'+ id + '/credits',{
            params:{
-             api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+             api_key:this.apiKey,
 
            },
          })
@@ -113,7 +121,7 @@ new Vue({
        const self = this;
          return axios.get('https://api.themoviedb.org/3/genre/movie/list',{
            params:{
-             api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+             api_key:this.apiKey,
 
            },
          })
@@ -129,7 +137,7 @@ new Vue({
        const self = this;
          return axios.get('https://api.themoviedb.org/3/genre/tv/list',{
            params:{
-             api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+             api_key:this.apiKey,
 
            },
          })
@@ -207,25 +215,25 @@ new Vue({
 
    },
 
-   filterByGenre:function(genere){
-     return genere.toLowerCase() === this.select.toLowerCase() || this.select === '';
-   }
-
+   // selectByGenre:function(array){
+   //   return array.toLowerCase()===this.select || this.select === '';
+   // }
 
 },
 
  mounted(){
    const self = this;
 
-   axios.get('https://api.themoviedb.org/3/search/movie',{
+   axios.get('https://api.themoviedb.org/3/trending/all/week',{
      params:{
-       api_key:'427d996ca0a65b440bcbfd1d8ce45126',
+       api_key:this.apiKey,
        query: 'Kill Bill',
        language: 'it-IT-en-EN',
      },
    })
    .then(function(resp){
      self.films = resp.data.results;
+
 
 
    });

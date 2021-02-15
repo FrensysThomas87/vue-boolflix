@@ -33,11 +33,11 @@
           <main>
 
             <h1 v-if="hideKindVideo(films)">Films</h1>
+            <h1 v-if="films.length === 0 && tvShows.length === 0">La ricerca non ha prodotto risultati</h1>
             <div class="films-container flex">
-              <div class="box-film" v-for="film in films"
+              <div class="box-film" v-for="film in films":style="backgroundMovie(film)">
 
 
-                :style="backgroundMovie(film)">
                 <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
                   <h2><strong>Titolo:</strong> {{film.title}}</h2>
                   <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
@@ -58,7 +58,10 @@
                   <p v-if="hideString(film.overview)"><strong>Overview:</strong> {{film.overview}}</p>
                   <!-- <img :src="posterSize + film.poster_path" alt=""> -->
                 </div>
+
               </div>
+
+
                 <!-- end films -->
             </div>
 
@@ -68,11 +71,11 @@
               <!-- serie tv -->
               <!-- <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
               <h1 v-if="hideKindVideo(tvShows)">Serie - TV</h1>
+
               <div class="serie-tv-container flex">
 
-                <div class="box-serie-tv" v-for="serie in tvShows"
+                <div class="box-serie-tv" v-for="serie in tvShows":style="backgroundSerieTv(serie)" v-if="serie.length!==0">
 
-                :style="backgroundSerieTv(serie)">
                   <div class="info-container" @mouseOver="castTvApiCall(serie.id),genresApiCallTv()">
                     <h2><strong>Titolo:</strong> {{serie.name}}</h2>
                     <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )">
@@ -90,13 +93,14 @@
                     <br>
                     <br>
                     <span><strong>Genre:</strong></span>
-                    <span v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}}  </span>
+                    <span :key="gender" v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}}  </span>
                     <p><stron>Release Date:</stron>{{serie.first_air_date}}</p>
                     <p v-if="hideString(serie.overview)"><strong>{{overview}}</strong>{{serie.overview}}</p>
                     <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
                   </div>
 
                 </div>
+
               </div>
             </div>
           <!-- serie tv -->
