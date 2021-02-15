@@ -31,9 +31,10 @@
 
           <!-- films -->
           <main>
-            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)" v-if="posterFilmVisible === true" ></div>
+            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"
+            v-if="posterFilmVisible === true"></div>
             <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)" v-if="posterSerieVisible === true"></div>
-            <div class="big-poster-tv"></div>
+
             <!-- <img class="big-poster" :src="insertBigPoster(generalResult)" alt=""> -->
             <h1 v-if="hideKindVideo(films)">Films</h1>
             <h1 v-if="films.length===0 && generalResult.length !== 0 ">Trending Films</h1>
@@ -43,6 +44,8 @@
               <div class="box-film-container flex">
                 <div class="box-film" v-for="(film,index) in generalResult":style="backgroundMovie(film)"
                 @click="showBigPosterFilm(index)">
+              
+
                   <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
                     <h2><strong>Titolo:</strong> {{film.title}}</h2>
                     <h3 v-if="hideOriginalTitle(film.original_title,film.title)">

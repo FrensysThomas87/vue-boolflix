@@ -74,12 +74,24 @@ main{
 
 }
 
-.big-poster-film{
-  width: 100vw;
-  height: 80vh;
-  background-size: 100% 100%;
+.big-poster-film,
+.big-poster-tv{
+  width: 100%;
+  height: 80%;
   margin-bottom: 50px;
+  
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
 }
+
+.info-big-poster{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+
 
 
 h1:first-of-type,
