@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
     <body>
+
       <div id="app">
       <!-- barra di ricerca -->
           <div id="wrapper">
@@ -58,7 +59,8 @@
 
 
                   <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
-                    <h2><strong>Titolo:</strong> {{film.title}}</h2>
+                  
+                    <h2><strong>Titolo:</strong>  {{film.title}}</h2>
                     <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
                     <strong>Titolo originale:</strong> {{film.original_title}}</h3>
                     <br>

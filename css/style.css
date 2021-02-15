@@ -9,6 +9,10 @@ h1{
   color:#fff;
 }
 
+a{
+  text-decoration: none;
+}
+
 #wrapper{
   height: 100vh;
 }
@@ -131,6 +135,7 @@ h1:last-of-type{
 .box-film-container,
 .box-serie-tv-container{
   width: max-content;
+  cursor: pointer;
 }
 
 
