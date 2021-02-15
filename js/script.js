@@ -36,7 +36,7 @@ new Vue({
    trendingFilms:[],
 
 
-   generalResults:[],
+
 
    //Array che contiene i trending tv shows
    trendingTv:[],
@@ -89,15 +89,6 @@ new Vue({
      .then(function(resp){
        self.films = resp.data.results;
        self.generalResult = [...self.generalResult,...self.films];
-
-
-
-       self.generalResult = [...self.generalResult,...self.films];
-
-
-
-
-
        self.searchBar = '';
 
        // console.log(self.films);
@@ -121,17 +112,7 @@ new Vue({
      .then(function(resp){
        self.tvShows = resp.data.results;
 
-       self.generalResults = [...self.generalResults, ...self.tvShows];
-
-
-
-
-       self.generalResultTv = [...self.generalResultTv,...self.tvShows];
-
-
-
-
-
+       self.generalResultTv = [...self.generalResultTv, ...self.tvShows];
        self.searchBar = '';
 
      })

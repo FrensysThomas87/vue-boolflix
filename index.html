@@ -31,8 +31,7 @@
 
           <!-- films -->
           <main>
-            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"
-            v-if="posterFilmVisible === true"></div>
+            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"v-if="posterFilmVisible === true"></div>
             <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)" v-if="posterSerieVisible === true"></div>
 
             <!-- <img class="big-poster" :src="insertBigPoster(generalResult)" alt=""> -->
@@ -44,7 +43,7 @@
               <div class="box-film-container flex">
                 <div class="box-film" v-for="(film,index) in generalResult":style="backgroundMovie(film)"
                 @click="showBigPosterFilm(index)">
-              
+
 
                   <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
                     <h2><strong>Titolo:</strong> {{film.title}}</h2>
