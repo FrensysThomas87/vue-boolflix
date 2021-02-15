@@ -31,7 +31,13 @@
 
           <!-- films -->
           <main>
-            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"v-if="posterFilmVisible === true"></div>
+            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"v-if="posterFilmVisible === true">
+              <div class="big-poster-info-container">
+                <h1>{{generalResult[activeIndex].title}}</h1>
+                <p>{{generalResult[activeIndex].overview}}</p>
+              </div>
+
+            </div>
             <div class="big-poster-film" :style="insertBigPosterSerie(generalResultTv)" v-if="posterSerieVisible === true"></div>
 
             <!-- <img class="big-poster" :src="insertBigPoster(generalResult)" alt=""> -->

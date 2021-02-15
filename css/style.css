@@ -77,15 +77,27 @@ main{
 .big-poster-film,
 .big-poster-tv{
   width: 100%;
-  height: 80%;
+  height: 90%;
   margin-bottom: 50px;
-
   background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
+
 }
 
+.big-poster-info-container{
+  width: 700px;
+  color: #fff;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  padding: 20px;
+}
 
+.big-poster-info-container h1{
+  margin-bottom: 20px;
+}
 
 
 
