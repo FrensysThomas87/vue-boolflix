@@ -251,8 +251,10 @@ new Vue({
 
    // Funzione che restituisce l'immagine grande di copertina delle serie
    insertBigPosterSerie:function(tv){
+     console.log(tv);
      return{
         backgroundImage: 'url(' + this.posterSizeBig + tv[this.serieIndex].backdrop_path +   ')'
+
      }
 
    },
