@@ -18,10 +18,10 @@
                 <img :src="logo" alt="">
               </div>
               <div>
-                <select class="" name="" v-model="select">
+                <!-- <select class="" name="" v-model="select">
                   <option value="">---Tutti i generi---</option>
-                  <option v-for="element in generi">{{element.id}}</option>
-                </select>
+                  <option v-for="element in generi" value="">{{element.name}}</option>
+                </select> -->
               </div>
               <div>
                 <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
@@ -52,10 +52,10 @@
             <h1 v-if="films.length===0 && generalResult.length !== 0 ">Trending Films</h1>
 
             <h1 class="no-results" v-if="generalResult.length === 0 && generalResultTv.length === 0">LA RICERCA NON HA PRODOTTO RISULTATI!!!</h1>
-            <div class="films-container ">
+            <div class="films-container  ">
               <div class="box-film-container flex">
                 <div class="box-film" v-for="(film,index) in generalResult":style="backgroundMovie(film)"
-                @click="showBigPosterFilm(index)" v-if="giveGenres(film.genre_ids, select) || select === ''">
+                @click="showBigPosterFilm(index)">
 
 
                   <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
