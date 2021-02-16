@@ -33,7 +33,7 @@
           <!-- films -->
           <main>
             <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"
-            v-if="hidePoster(posterFilmVisible, films, tvShows)">
+            v-if="hidePoster(posterFilmVisible, films, tvShows) && generalResult[activeIndex]">
               <div class="big-poster-info-container">
                 <h1>{{generalResult[activeIndex].title.toUpperCase()}}</h1>
                 <p>{{generalResult[activeIndex].overview}}</p>
@@ -59,7 +59,7 @@
 
 
                   <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
-                  
+
                     <h2><strong>Titolo:</strong>  {{film.title}}</h2>
                     <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
                     <strong>Titolo originale:</strong> {{film.original_title}}</h3>

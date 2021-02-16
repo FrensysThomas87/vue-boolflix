@@ -236,6 +236,7 @@ new Vue({
 
    // Funzione che restiuisce l'immagine grande di copertina dei films
    insertBigPosterFilm:function(film){
+     if(this.generalResult.length)
      return{
        backgroundImage: 'url(' + this.posterSizeBig + film[this.activeIndex].backdrop_path +   ')'
      }
