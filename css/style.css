@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+.films-container::-webkit-scrollbar,
+.serie-tv-container::-webkit-scrollbar {
+  display: none;
+}
+
+.films-container,
+.serie-tv-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 h1{
   color:#fff;
 }
