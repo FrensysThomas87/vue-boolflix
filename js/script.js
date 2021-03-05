@@ -169,7 +169,7 @@ new Vue({
 
      //funzione che rende visibile la barra di ricerca
      inputVisible:function(){
-       this.searchVisible = true;
+       this.searchVisible = !this.searchVisible;
      },
 
      // Funzione che richiama i generi delle serie
