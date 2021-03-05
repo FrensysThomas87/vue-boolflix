@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-.films-container::-webkit-scrollbar,
+/* .films-container::-webkit-scrollbar,
 .serie-tv-container::-webkit-scrollbar {
   display: none;
 }
@@ -15,7 +15,7 @@
 .films-container,
 .serie-tv-container {
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+ /*  scrollbar-width: none;  Firefox */
 }
 
 h1{
@@ -80,7 +80,7 @@ header img{
   outline: none;
   line-height: 100px;
   margin-left: 15px;
-  
+
 }
 
 .fas.fa-search{
