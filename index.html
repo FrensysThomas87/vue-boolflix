@@ -24,7 +24,10 @@
                 </select> -->
               </div>
               <div>
-                <input type="text" placeholder="Cerca" v-model="searchBar" @keyup.enter="apiCall">
+
+                <input type="text" placeholder="Cerca" v-model="searchBar"
+                @keyup.enter="apiCall" v-show="searchVisible === true">
+                <i class="fas fa-search" @click="inputVisible()"></i>
               </div>
             </header>
 

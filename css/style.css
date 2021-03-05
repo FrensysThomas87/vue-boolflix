@@ -63,6 +63,8 @@ header{
   align-items: center;
   padding: 25px;
   width: 100%;
+  position: relative;
+
 }
 
 header img{
@@ -77,12 +79,21 @@ header img{
   padding: 3px 0 3px 10px;
   outline: none;
   line-height: 100px;
+  margin-left: 15px;
 }
 
-/* .fas.fa-search{
+.fas.fa-search{
   font-size: 30px;
   vertical-align: middle;
-} */
+  color: #ccc;
+  position: absolute;
+  right: 239px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+
+}
 
 /*End Header*/
 

@@ -61,6 +61,8 @@ new Vue({
 
    posterFilmVisible: true,
 
+   searchVisible: false,
+
 
 },
 
@@ -163,6 +165,11 @@ new Vue({
      // Controlla se gli a
      checkArrayEmpty:function(array1, array2){
        return array1.length === 0 && array2.length === 0;
+     },
+
+     //funzione che rende visibile la barra di ricerca
+     inputVisible:function(){
+       this.searchVisible = true;
      },
 
      // Funzione che richiama i generi delle serie
