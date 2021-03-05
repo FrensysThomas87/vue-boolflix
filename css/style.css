@@ -1,4 +1,6 @@
 
+/*Utilities*/
+
 *{
   margin: 0;
   padding: 0;
@@ -51,8 +53,9 @@ a{
   display: none;
 }
 
+/*End Utilities*/
 
-
+/*Header*/
 header{
   height: 80px;
   background-color: #000;
@@ -76,9 +79,18 @@ header img{
   line-height: 100px;
 }
 
-.fas.fa-search{
+/* .fas.fa-search{
   font-size: 30px;
   vertical-align: middle;
+} */
+
+/*End Header*/
+
+
+/*Main*/
+
+.film-serie-identifier{
+  color: red;
 }
 
 main{
@@ -218,3 +230,4 @@ h1:last-of-type{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+/*End main*/
