@@ -157,9 +157,12 @@ new Vue({
          })
          .then(function(resp){
            self.generi = resp.data.genres;
-
-
          });
+     },
+
+     // Controlla se gli a
+     checkArrayEmpty:function(array1, array2){
+       return array1.length === 0 && array2.length === 0;
      },
 
      // Funzione che richiama i generi delle serie

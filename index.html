@@ -51,7 +51,7 @@
             <h1 v-if="hideKindVideo(films, tvShows)">Films</h1>
             <h1 v-if="films.length===0 && generalResult.length !== 0 ">Trending Films</h1>
 
-            <h1 class="no-results" v-if="generalResult.length === 0 && generalResultTv.length === 0">LA RICERCA NON HA PRODOTTO RISULTATI!!!</h1>
+            <h1 class="no-results" v-if="checkArrayEmpty(generalResult, generalResultTv)">LA RICERCA NON HA PRODOTTO RISULTATI!!!</h1>
             <div class="films-container  ">
               <div class="box-film-container flex">
                 <div class="box-film" v-for="(film,index) in generalResult":style="backgroundMovie(film)"
