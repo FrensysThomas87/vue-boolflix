@@ -7,16 +7,30 @@
   box-sizing: border-box;
 }
 
-/* .films-container::-webkit-scrollbar,
-.serie-tv-container::-webkit-scrollbar {
-  display: none;
+
+
+ /* width */
+ ::-webkit-scrollbar {
+  width: 10px;
+  ;
 }
 
-.films-container,
-.serie-tv-container {
-  -ms-overflow-style: none;  /* IE and Edge */
- /*  scrollbar-width: none;  Firefox */
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000;
+  
 }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:red;
+  border-radius: 20px
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: red;
+} 
 
 h1{
   color:#fff;
@@ -171,6 +185,7 @@ h1:last-of-type{
 .box-serie-tv-container{
   width: max-content;
   cursor: pointer;
+  
 }
 
 
@@ -183,6 +198,7 @@ h1:last-of-type{
   margin-bottom: 10px;
   background-size:410px 750px;
   background-position: center;
+  border-radius: 4px;
 
 }
 

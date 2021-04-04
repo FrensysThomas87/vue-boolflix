@@ -1,143 +1,145 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Vue Boolflix</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-    <body>
+        <!DOCTYPE html>
+        <html lang="en" dir="ltr">
+        <head>
+            <meta charset="utf-8">
+            <title>Vue Boolflix</title>
+            <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+            <link rel="stylesheet" href="css/style.css">
+        </head>
+        <body>
 
-      <div id="app">
-      <!-- barra di ricerca -->
-          <div id="wrapper">
-            <header class="flex" @mouseOver="genresApiCallMovie()">
-              <div>
-                <img :src="logo" alt="">
-              </div>
-              <div>
-                <!-- <select class="" name="" v-model="select">
-                  <option value="">---Tutti i generi---</option>
-                  <option v-for="element in generi" value="">{{element.name}}</option>
-                </select> -->
-              </div>
-              <div>
-
-                <input type="text" placeholder="Cerca" v-model="searchBar"
-                @keyup.enter="apiCall" v-show="searchVisible === true">
-                <i class="fas fa-search" @click="inputVisible()"></i>
-              </div>
-            </header>
-
-          <!--end barra di ricerca -->
-
-          <!-- films -->
-          <main>
-            <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"
-            v-if="hidePoster(posterFilmVisible, films, tvShows) && generalResult[activeIndex]">
-              <div class="big-poster-info-container">
-                <h1>{{generalResult[activeIndex].title.toUpperCase()}}</h1>
-                <p>{{generalResult[activeIndex].overview}}</p>
-              </div>
-            </div>
-            <div class="big-poster-serie" :style="insertBigPosterSerie(generalResultTv)"
-            v-if="hidePoster(posterSerieVisible, films, tvShows)">
-              <div class="big-poster-info-container">
-                <h1>{{generalResultTv[serieIndex].name.toUpperCase()}}</h1>
-                <p>{{generalResultTv[serieIndex].overview}}</p>
-              </div>
-            </div>
-
-            <!-- <img class="big-poster" :src="insertBigPoster(generalResult)" alt=""> -->
-            <h1 class="film-serie-identifier" v-if="hideKindVideo(films, tvShows)">Films</h1>
-            <h1 class="film-serie-identifier" v-if="films.length===0 && generalResult.length !== 0 ">Trending Films</h1>
-
-            <h1 class="no-results" v-if="checkArrayEmpty(generalResult, generalResultTv)">LA RICERCA NON HA PRODOTTO RISULTATI!!!</h1>
-            <div class="films-container  ">
-              <div class="box-film-container flex">
-                <div class="box-film" v-for="(film,index) in generalResult":style="backgroundMovie(film)"
-                @click="showBigPosterFilm(index)">
+        <div id="app">
+            <!-- barra di ricerca -->
+            <div id="wrapper">
+                <header class="flex" @mouseOver="genresApiCallMovie()">
+                    <div>
+                        <img :src="logo" alt="">
+                    </div>
+                    <div>
+                        <!-- <select class="" name="" v-model="select">
+                          <option value="">---Tutti i generi---</option>
+                          <option v-for="element in generi" value="">{{element.name}}</option>
+                        </select> -->
+                    </div>
+                    <div>
 
 
-                  <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
+                        <input type="text" placeholder="Cerca" v-model="searchBar"
+                               @keyup.enter="apiCall" v-show="searchVisible === true">
+                        <i class="fas fa-search" @click="inputVisible()"></i>
+                    </div>
+                </header>
 
-                    <h2><strong>Titolo:</strong>  {{film.title}}</h2>
-                    <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
-                    <strong>Titolo originale:</strong> {{film.original_title}}</h3>
-                    <br>
-                    <span><strong>Lingua:</strong> {{film.original_language}}</span>
-                    <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
-                    <br>
-                    <br>
-                    <span><strong>Voto:</strong></span>
-                    <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
-                    <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br><br>
-                    <span><strong>Cast:</strong></span>
-                    <span v-for="credit in credits">{{credit.name}}  </span><br><br>
-                     <span><strong>Genre:</strong></span>
-                    <span v-for="gender in generi" v-if="giveGenres(film.genre_ids, gender.id)">{{gender.name}}  </span>
-                    <p><stron>Release Date:</stron>{{film.release_date}}</p>
-                    <p v-if="hideString(film.overview)"><strong>Overview:</strong> {{film.overview}}</p>
-                    <!-- <img :src="posterSize + film.poster_path" alt=""> -->
-                  </div>
+                <!--end barra di ricerca -->
 
-                </div>
-
-              </div>
-
-
-                <!-- end films -->
-            </div>
-
-
-
-
-              <!-- serie tv -->
-              <!-- <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
-              <h1 class="film-serie-identifier" v-if="hideKindVideo(films,tvShows)">Serie - TV</h1>
-              <h1 class="film-serie-identifier" v-if="tvShows.length===0 && generalResultTv.length !== 0 ">Trending Serie Tv</h1>
-              <div class="serie-tv-container">
-                <div class="box-serie-tv-container flex">
-                  <div class="box-serie-tv" v-for="(serie,i) in generalResultTv":style="backgroundSerieTv(serie)"
-                  @click="showBigPosterTv(i)">
-
-                    <div class="info-container" @mouseOver="castTvApiCall(serie.id),genresApiCallTv()">
-                      <h2><strong>Titolo:</strong> {{serie.name}}</h2>
-                      <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )">
-                        <strong>Titolo originale:</strong> {{serie.original_name}}</h3>
-                      <br>
-                      <span><strong>Lingua:</strong> {{serie.original_language}}</span>
-                      <img  :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
-                      <br>
-                      <br>
-                      <span><strong>Voto:</strong></span>
-                      <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
-                      <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br><br>
-                      <span><strong >Cast:</strong></span>
-                      <span v-for="credit in credits">{{credit.name}}  </span>
-                      <br>
-                      <br>
-                      <span><strong>Genre:</strong></span>
-                      <span :key="gender" v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}}  </span>
-                      <p><stron>Release Date:</stron>{{serie.first_air_date}}</p>
-                      <p v-if="hideString(serie.overview)"><strong>{{overview}}</strong>{{serie.overview}}</p>
-                      <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
+                <!-- films -->
+                <main>
+                    <div class="big-poster-film" :style="insertBigPosterFilm(generalResult)"
+                         v-if="hidePoster(posterFilmVisible, films, tvShows) && generalResult[activeIndex]">
+                        <div class="big-poster-info-container">
+                            <h1>{{generalResult[activeIndex].title.toUpperCase()}}</h1>
+                            <p>{{generalResult[activeIndex].overview}}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="big-poster-serie" :style="insertBigPosterSerie(generalResultTv)"
+                         v-if="hidePoster(posterSerieVisible, films, tvShows)">
+                        <div class="big-poster-info-container">
+                            <h1>{{generalResultTv[serieIndex].name.toUpperCase()}}</h1>
+                            <p>{{generalResultTv[serieIndex].overview}}</p>
+                        </div>
                     </div>
 
-                  </div>
+                    <!-- <img class="big-poster" :src="insertBigPoster(generalResult)" alt=""> -->
+                    <h1 class="film-serie-identifier" v-if="hideKindVideo(films, tvShows)">Films</h1>
+                    <h1 class="film-serie-identifier" v-if="films.length===0 && generalResult.length !== 0 ">Trending Films</h1>
+
+                    <h1 class="no-results" v-if="checkArrayEmpty(generalResult, generalResultTv)">LA RICERCA NON HA PRODOTTO
+                        RISULTATI!!!</h1>
+                    <div class="films-container  ">
+                        <div class="box-film-container flex">
+                            <div class="box-film" v-for="(film,index) in generalResult" :style="backgroundMovie(film)"
+                                 @click="showBigPosterFilm(index)">
+
+
+                                <div class="info-container" @mouseOver="castMovieApiCall(film.id),genresApiCallMovie()">
+
+                                    <h2><strong>Titolo:</strong> {{film.title}}</h2>
+                                    <h3 v-if="hideOriginalTitle(film.original_title,film.title)">
+                                        <strong>Titolo originale:</strong> {{film.original_title}}</h3>
+                                    <br>
+                                    <span><strong>Lingua:</strong> {{film.original_language}}</span>
+                                    <img :src="'img/' + film.original_language + '.svg'" alt="bandiera">
+                                    <br>
+                                    <br>
+                                    <span><strong>Voto:</strong></span>
+                                    <i v-for="i in parseVote(film.vote_average)" class="fas fa-star"></i>
+                                    <i v-for="i in (5 - parseVote(film.vote_average))" class="far fa-star"></i><br><br>
+                                    <span><strong>Cast:</strong></span>
+                                    <span v-for="credit in credits">{{credit.name}}  </span><br><br>
+                                    <span><strong>Genre:</strong></span>
+                                    <span v-for="gender in generi"
+                                          v-if="giveGenres(film.genre_ids, gender.id)">{{gender.name}}  </span>
+                                    <p>
+                                        <stron>Release Date:</stron>
+                                        {{film.release_date}}
+                                    </p>
+                                    <p v-if="hideString(film.overview)"><strong>Overview:</strong> {{film.overview}}</p>
+                                    <!-- <img :src="posterSize + film.poster_path" alt=""> -->
+                                </div>
+                              </div>
+                            </div>
+                            <!-- end films -->
+                          </div>
+
+
+                    <!-- serie tv -->
+                    <!-- <h1 v-if="tvShows.length === 0 && searchBar !== ''">{{noResults}}</h1> -->
+                    <h1 class="film-serie-identifier" v-if="hideKindVideo(films,tvShows)">Serie - TV</h1>
+                    <h1 class="film-serie-identifier" v-if="tvShows.length===0 && generalResultTv.length !== 0 ">Trending Serie
+                        Tv</h1>
+                    <div class="serie-tv-container">
+                        <div class="box-serie-tv-container flex">
+                            <div class="box-serie-tv" v-for="(serie,i) in generalResultTv" :style="backgroundSerieTv(serie)"
+                                 @click="showBigPosterTv(i)">
+
+                                <div class="info-container" @mouseOver="castTvApiCall(serie.id),genresApiCallTv()">
+                                    <h2><strong>Titolo:</strong> {{serie.name}}</h2>
+                                    <h3 v-if="hideOriginalTitle(serie.original_name, serie.name )">
+                                        <strong>Titolo originale:</strong> {{serie.original_name}}</h3>
+                                    <br>
+                                    <span><strong>Lingua:</strong> {{serie.original_language}}</span>
+                                    <img :src="'img/' + serie.original_language + '.svg'" alt="bandiera">
+                                    <br>
+                                    <br>
+                                    <span><strong>Voto:</strong></span>
+                                    <i v-for="i in parseVote(serie.vote_average)" class="fas fa-star"></i>
+                                    <i v-for="i in (5 - parseVote(serie.vote_average))" class="far fa-star"></i><br><br>
+                                    <span><strong>Cast:</strong></span>
+                                    <span v-for="credit in credits">{{credit.name}}  </span>
+                                    <br>
+                                    <br>
+                                    <span><strong>Genre:</strong></span>
+                                    <span :key="gender" v-for="gender in generi" v-if="giveGenres(serie.genre_ids, gender.id)">{{gender.name}}  </span>
+                                    <p>
+                                        <stron>Release Date:</stron>
+                                        {{serie.first_air_date}}
+                                    </p>
+                                    <p v-if="hideString(serie.overview)"><strong>{{overview}}</strong>{{serie.overview}}</p>
+                                    <!-- <img :src="posterSize + serie.poster_path" alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
-              </div>
-            </div>
-          <!-- serie tv -->
-          </main>
+            <!-- serie tv -->
+            </main>
         </div>
       </div>
 
-    <script src="js/script.js" charset="utf-8"></script>
+  <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>
 
