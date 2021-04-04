@@ -89,14 +89,19 @@ header img{
 
 
  input{
-  width: 200px;
-  height: 30px;
+  width: 500px;
+  height: 40px;
   padding: 3px 0 3px 10px;
   outline: none;
   line-height: 100px;
   margin-left: 15px;
-
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
 }
+
+
 
 .fas.fa-search{
   font-size: 30px;
