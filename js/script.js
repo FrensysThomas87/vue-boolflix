@@ -120,8 +120,8 @@ new Vue({
      })
    },
 
-   //Funzione che fa la chiamata per il cast
-   castMovieApiCall:function(id){
+   //Funzione che fa la chiamata per il cast dei films
+  castMovieApiCall:function(id){
      const self = this;
        return axios.get('https://api.themoviedb.org/3/movie/'+ id + '/credits',{
          params:{
@@ -134,7 +134,7 @@ new Vue({
        });
      },
 
-     //Richiama i generi delle serie tv
+     //Funzione che fa la chiamata per il cast delle serie tv
      castTvApiCall:function(id){
        const self = this;
          return axios.get('https://api.themoviedb.org/3/tv/'+ id + '/credits',{
@@ -162,12 +162,12 @@ new Vue({
          });
      },
 
-     // Controlla se gli a
+     // Controlla se gli array dei films se delle serie tv sono vuoti
      checkArrayEmpty:function(array1, array2){
        return array1.length === 0 && array2.length === 0;
      },
 
-     //funzione che rende visibile la barra di ricerca
+     //funzione che rende visibile/invisibile la barra di ricerca
      inputVisible:function(){
        this.searchVisible = !this.searchVisible;
      },

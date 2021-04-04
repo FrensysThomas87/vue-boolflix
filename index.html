@@ -19,15 +19,8 @@
                     <div>
                         <img :src="logo" alt="">
                     </div>
+                    
                     <div>
-                        <!-- <select class="" name="" v-model="select">
-                          <option value="">---Tutti i generi---</option>
-                          <option v-for="element in generi" value="">{{element.name}}</option>
-                        </select> -->
-                    </div>
-                    <div>
-
-
                         <input type="text" placeholder="Cerca" v-model="searchBar"
                                @keyup.enter="apiCall" v-show="searchVisible === true">
                         <i class="fas fa-search" @click="inputVisible()"></i>
