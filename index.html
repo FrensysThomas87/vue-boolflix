@@ -48,8 +48,8 @@
                     </div>
 
                     <!-- <img class="big-poster" :src="insertBigPoster(generalResult)" alt=""> -->
-                    <h1 class="film-serie-identifier" v-if="hideKindVideo(films, tvShows)">Films</h1>
-                    <h1 class="film-serie-identifier" v-if="films.length===0 && generalResult.length !== 0 ">Trending Films</h1>
+                    <h1 class="film-serie-identifier" v-if="hideKindVideo(films, tvShows)">Film</h1>
+                    <h1 class="film-serie-identifier" v-if="films.length===0 && generalResult.length !== 0 ">Trending Film</h1>
 
                     <h1 class="no-results" v-if="checkArrayEmpty(generalResult, generalResultTv)">LA RICERCA NON HA PRODOTTO
                         RISULTATI!!!</h1>
